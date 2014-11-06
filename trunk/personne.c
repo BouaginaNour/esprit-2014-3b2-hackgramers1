@@ -1,3 +1,4 @@
+#include<stdio.h>
 #include"personne.h"
 void sasir_personne(Personne *p)
 {
