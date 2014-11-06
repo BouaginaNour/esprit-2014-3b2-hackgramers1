@@ -1,3 +1,5 @@
+#include<stdio.h>
+#include<string.h>
 #ifndef PERSONNE_H_
 #define PERSONNE_H_
 struct Personne {
@@ -10,3 +12,5 @@ typedef struct Personne Personne;
 void saisir_personne(Personne *p);
 void afficher_personne(Personne p);
 #endif /* PERSONNE_H_ */
+
+
