@@ -8,7 +8,7 @@ char prenom[20];
 long int cin;
 int age;
 };
-typedef struct Personne Personne;
+typedef struct Personne p;
 void saisir_personne(Personne *p);
 void afficher_personne(Personne p);
 #endif /* PERSONNE_H_ */
