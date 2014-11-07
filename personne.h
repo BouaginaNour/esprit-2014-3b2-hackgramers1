@@ -1,5 +1,3 @@
-#include<stdio.h>
-#include<string.h>
 #ifndef PERSONNE_H_
 #define PERSONNE_H_
 struct Personne {
@@ -8,9 +6,8 @@ char prenom[20];
 long int cin;
 int age;
 };
-typedef struct Personne p;
-void saisir_personne(Personne *p);
-void afficher_personne(Personne p);
+typedef struct Personne personne;
+void saisir_personne(personne *p);
+void afficher_personne(personne p);
 #endif /* PERSONNE_H_ */
-
 

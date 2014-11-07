@@ -1,19 +1,25 @@
 #include<stdio.h>
+#include<string.h>
 #include"personne.h"
-void sasir_personne(Personne *p)
-{
-     printf("donner nom personne");fflush(stdin);
-     scanf("%s", *p.nom);
-     printf("donner prenom personne");fflush(stdin);
-     scanf("%s", *p.prenom);
-     printf("donner cin");
-     scanf("%ld", &*p.cin);
-     printf("donner age");
-     scanf("%d", &*p.age);
+
+void saisir_personne (personne *p)
+{ 
+printf("Entrer le nom");
+fflush(stdin);
+scanf("%s",p->nom);
+printf("Entrer le prenom");
+fflush(stdin);
+scanf("%s",p->prenom);
+printf("Entrer CIN");
+scanf("%ld",&(*p).cin);
+printf("Entrer l'age");
+scanf("%d",&(*p).age);
 }
 
-void afficher_personne(Personne p)
+void afficher_personne(personne p)
 {
-     printf("\n nom:%s prenom:%s cin:%ld age:%d");
+printf("Nom    :%s\n",p.nom);
+printf("PreNom :%s\n",p.prenom);
+printf("CIN    : %ld\n",p.cin);
+printf("Age    :%d\n",p.age);
 }
-
