@@ -3,7 +3,7 @@
 #include<string.h>
 #include"gestion_garage.h"
 #include"voiture.h"
-void ajouter_voiture(Voiture garage[], int *n, voiture v);
+void ajouter_voiture(voiture garage[], int *n, voiture v);
 
 { 
 if (*n <= capacite)
