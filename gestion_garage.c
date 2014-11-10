@@ -36,6 +36,6 @@ void init_garage(Voiture garage[], int n);
 {
  int i;
 for (i=0;i<n;i++)
-saisir_voiture(garage *v);
+saisir_voiture(garage->v);
 }}
 
