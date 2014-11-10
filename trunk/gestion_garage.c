@@ -2,14 +2,10 @@
 #include <string.h>
 #include "gestion_garage.h"
 
-void ajouter_voiture(voiture garage[], int *n)
+void ajouter_voiture(voiture garage[],int *n,voiture v)
 {
-	voiture v;
-	printf("\n[!] Ajout de la voiture: ");		
-	saisir_voiture(&v);
-	garage[*n] = v;
-	printf("[!] Voiture Ajouter");
-	*n = *n + 1;
+saisir_voiture(&v);
+(*n)=(*n)+1;
 }
 
 void supprimer_voiture(voiture garage[], char immatriculation[],int *n)
