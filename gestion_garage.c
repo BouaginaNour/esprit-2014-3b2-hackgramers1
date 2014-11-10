@@ -1,53 +1,58 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include"gestion_garage.h"
-#include"voiture.h"
-void ajouter_voiture(voiture garage[], int *n, voiture v);
+#include <stdio.h>
+#include <string.h>
+#include "gestion_garage.h"
 
-{ 
-if (*n <= capacite)
-  {
-   garage[*n]=v;
-   *n=*n+1;
-  }
-else printf("le garage est plein");
+void ajouter_voiture(voiture garage[], int *n)
+{
+	voiture v;
+	printf("\n[!] Ajout de la voiture: ");		
+	saisir_voiture(&v);
+	garage[*n] = v;
+	printf("[!] Voiture Ajouter");
+	*n = *n + 1;
 }
 
-void supprimer_voiture(voiture garage[], char immatriculation[], int *n)
-{ 
+void supprimer_voiture(voiture garage[], char immatriculation[],int *n)
+{
+int i,j;
+for(i=0;i<*n;i++)
+{
+	if((strcmp(garage[i].immatriculation,immatriculation)==0))
+	{
+	for(j=i;j<(*n)-1;j++)
+		{
+		garage[j]=garage[j+1];
+		}
 
-  int i=0;
-  int pos=-1;
-  while( (i<n)&& pos==-1)
-    {
-      {
-       if (strmp(garage [i],immartricule,immatriculation))==0
-       pos=i;
-       else i++;
-      }
-      {
-       if (pos==-1)
-        printf("la voiture nexiste pas");
-        else
+		(*n)=(*n)-1;
 
-            for (i=pos;i<*n-1;i++)
-          {
-            garage[i]=garage[i+1];
-            *n--;
-          }
-      }
+	}
 }
+
+}
+
 void afficher_garage(voiture garage[], int n)
 {
-            int i;
-            for (i=0; i<n;i++)
-            afficher_voiture(garage[i]);
-}
-void init_garage(voiture garage[] , int n)
+int i;
+for(i=0;i<n;i++)
 {
- int i;
-for (i=0;i<n;i++)
-saisir_voiture(garage->v);
+printf(" la voiture est %d :",i+1);
+afficher_voiture(garage[i]);
+}
 }
 
+void init_garage(voiture garage[], int n)
+{
+int i;
+for(i=0;i<n;i++)
+{
+strcpy(garage[i].immatriculation,"");
+strcpy(garage[i].marque,"");
+strcpy(garage[i].couleur,"");
+strcpy((garage[i]).P.nom,"");
+strcpy(garage[i].P.prenom,"");
+garage[i].P.cin=0;
+garage[i].P.age=0;
+strcpy(garage[i].panne,"");
+}
+}
