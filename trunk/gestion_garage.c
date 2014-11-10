@@ -2,9 +2,6 @@
 #include<stdlib.h>
 #include<string.h>
 #include"gestion_garage.h"
-
-void ajouter_voiture(voiture garage[], int *n, voiture v)
-=======
 #include"voiture.h"
 void ajouter_voiture(Voiture garage[], int *n, voiture v);
 
