@@ -2,12 +2,12 @@
 #include<stdlib.h>
 #include<string.h>
 #include"gestion_garage.h"
-<<<<<<< .mine
+
 void ajouter_voiture(voiture garage[], int *n, voiture v)
 =======
 #include"voiture.h"
-void ajouter_voiture(Voiture garage[], int *n, Voiture v);
->>>>>>> .r23
+void ajouter_voiture(Voiture garage[], int *n, voiture v);
+
 { 
 if (*n <= capacite)
   {
@@ -36,7 +36,7 @@ void supprimer_voiture(voiture garage[], char immatriculation[], int *n)
 
             for (i=pos;i<*n-1;i++)
           {
-            T[i]=T[i+1];
+            garage[i]=garage[i+1];
             *n--;
           }
       }

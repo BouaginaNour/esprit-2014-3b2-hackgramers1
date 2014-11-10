@@ -7,13 +7,13 @@
       int n = 0;
 int choix;
 switch (choix) {
-case 1: ajouter_voiture(Voiture garage[], int *n, Voiture v);
+case 1: ajouter_voiture(voiture garage[], int *n, voiture v);
 break;
-case 2: supprimer_voiture(Voiture garage[], char immatriculation[], int *n) ;
+case 2: supprimer_voiture(voiture garage[], char immatriculation[], int *n) ;
 break;
-case 3: afficher_garage(Voiture garage[], int n) ;
+case 3: afficher_garage(voiture garage[], int n) ;
 break;
-case 4: init_garage(Voiture garage[], int n);
+case 4: init_garage(voiture garage[], int n);
 break;
 case 0: printf("\nVous quitter l'application"); break;
 default: printf("\nmauvais choix");
