@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include"gestion-garage.h"
+#include"gestion_garage.h"
 void ajouter_voiture(Voiture garage[], int *n, Voiture v);
 { 
 if (*n<= capacite)
