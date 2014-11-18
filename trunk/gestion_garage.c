@@ -2,13 +2,13 @@
 #include <string.h>
 #include "gestion_garage.h"
 
-void ajouter_voiture(voiture garage[],int *n,voiture v)
+void ajouter_voiture(voiture garage[100],int *n,voiture v)
 {
-saisir_voiture(&v);
+garage[*n]=v;
 (*n)=(*n)+1;
 }
 
-void supprimer_voiture(voiture garage[], char immatriculation[],int *n)
+void supprimer_voiture(voiture garage[100], char immatriculation[],int *n)
 {
 int i,j;
 for(i=0;i<*n;i++)
@@ -23,7 +23,7 @@ for(i=0;i<*n;i++)
 		(*n)=(*n)-1;
 
 	}
-}
+}  
 
 }
 

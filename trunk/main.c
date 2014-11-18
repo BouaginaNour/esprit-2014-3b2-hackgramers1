@@ -17,11 +17,14 @@ choix= choix_menu();
 switch (choix)
  {
 
- case 1: ajouter_voiture ( garage, &n, v);
+ case 1: saisir_voiture(&v);
+ajouter_voiture ( garage, &n, v);
  break;
- case 2: supprimer_voiture( garage,immatriculation, &n) ;
+ case 2:printf("donner l'immatriculation de la voiture a supprimer");
+        scanf("%s",immatriculation); 
+supprimer_voiture( garage,immatriculation, &n) ;
  break;
- case 3: afficher_garage( garage, n) ;
+ case 3: afficher_garage(garage, n) ;
  break;
  case 4: init_garage( garage, n);
  break;
