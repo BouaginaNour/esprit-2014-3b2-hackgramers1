@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include "medecin.h"
-int main()
+ main()
 {
 int c,t;
   char nom_medecin[20];

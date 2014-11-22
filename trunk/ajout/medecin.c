@@ -28,10 +28,10 @@ printf("veillez saisir le numero de telephone : ");
 scanf("%ld",&p->telephone);
 }
 
-void enregistrer_medecin (char fmedecin[], medecin *p)
+void enregistrer_medecin (char fmed[], medecin *p)
 { FILE *f;
 saisir_medecin(p);
-f=fopen(fmedecin,"ab");
+f=fopen(fmed,"ab");
 if(f!=NULL)
 {
 fwrite(p,sizeof(medecin),1,f);
@@ -41,22 +41,22 @@ printf("erreur d'ouverture");
 fclose(f);
 }
 
-void liste_medecin(char fmedecin[])
+void liste_medecin(char fmed[])
 {
 FILE *f;
 int i=1;
 medecin p;
 medecin med;
 med.id=70000;
-f=fopen(fmedecin,"rb");
+f=fopen(fmed,"rb");
 if(f!=NULL)
  {
 
-    while((fread(&p,sizeof(medecin),1,f)!=0));
+    while((fread(&p,sizeof(medecin),1,f)!=0))
     {
      med.id++;
      printf("\n");
-     printf("  Le medecin numéro %d :",i);
+     printf("  Le medecin numéro %d : \n",i);
      printf("\nIdentifiant :%ld",med.id);
      printf("\nNom: %s\nPrenom: %s\nAge: %d\nC.I.N/Passeport: %s\nNationalite: %s\nSalaire: %ld\nEtat civil: %s\nAdresse: %s\nTelephone: %ld",p.nom,p.prenom,p.age,p.passeport,p.nationalite,p.salaire,p.etat_civil,p.adresse,p.telephone);
     i++;
@@ -66,12 +66,12 @@ else
 printf("\nImpossible d'ouvrir le fichier du personnel");
 fclose(f);
 }
-int rechercher_medecin(char fmedecin[],char nom_medecin[])
+int rechercher_medecin(char fmed[],char nom_medecin[])
 {
 FILE *f;
 int test=0;
 medecin p;
-f=fopen(fmedecin,"rb");
+f=fopen(fmed,"rb");
 if (f!=NULL)
 {
    while(!feof(f)&&test==0)
