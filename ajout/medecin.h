@@ -20,9 +20,9 @@ struct medecin
 
 typedef struct medecin medecin ;
         void saisir_medecin(medecin *p);
-        void enregistrer_medecin(char fmedecin[],medecin *p);
-        void liste_medecin(char fmedecin[]);
-        int recherche_medecin(char fmedecin[],char nom_medecin[]);
+        void enregistrer_medecin(char fmed[],medecin *p);
+        void liste_medecin(char fmed[]);
+        int recherche_medecin(char fmed[],char nom_medecin[]);
 
 
 
