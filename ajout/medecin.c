@@ -28,10 +28,10 @@ printf("veillez saisir le numero de telephone : ");
 scanf("%ld",&p->telephone);
 }
 
-void enregistrer_medecin (char fmed[], medecin *p)
+void enregistrer_medecin (char fmedecin[], medecin *p)
 { FILE *f;
 saisir_medecin(p);
-f=fopen(fmed,"ab");
+f=fopen(fmedecin,"ab");
 if(f!=NULL)
 {
 fwrite(p,sizeof(medecin),1,f);
@@ -41,14 +41,14 @@ printf("erreur d'ouverture");
 fclose(f);
 }
 
-void liste_medecin(char fmed[])
+void liste_medecin(char fmedecin[])
 {
 FILE *f;
 int i=1;
 medecin p;
 medecin med;
 med.id=70000;
-f=fopen(fmed,"rb");
+f=fopen(fmedecin,"rb");
 if(f!=NULL)
  {
 
@@ -56,7 +56,7 @@ if(f!=NULL)
     {
      med.id++;
      printf("\n");
-     printf("  Le medecin numéro %d : \n",i);
+     printf("  Le medecin numéro %d :",i);
      printf("\nIdentifiant :%ld",med.id);
      printf("\nNom: %s\nPrenom: %s\nAge: %d\nC.I.N/Passeport: %s\nNationalite: %s\nSalaire: %ld\nEtat civil: %s\nAdresse: %s\nTelephone: %ld",p.nom,p.prenom,p.age,p.passeport,p.nationalite,p.salaire,p.etat_civil,p.adresse,p.telephone);
     i++;
@@ -66,6 +66,7 @@ else
 printf("\nImpossible d'ouvrir le fichier du personnel");
 fclose(f);
 }
+
 int rechercher_medecin(char fmed[],char nom_medecin[])
 {
 FILE *f;
@@ -86,3 +87,28 @@ test=-1;
 return test;
 fclose(f);
 }
+
+void supprimer_medecin(char fmedecin[],char nom_medecin[])
+{
+medecin m ;
+FILE *f;
+FILE *f2;
+char temp[]="temp";
+if(rechercher_medecin(fmedecin,nom_medecin)==-1)
+
+printf("l etudiant n existe pas \n");
+
+else
+{
+f=fopen(fmedecin,"rb");
+f2=fopen(temp,"ab");
+while(fread(&m,sizeof(medecin),1,f)!=0)
+{
+if(strcmp(m.nom,nom_medecin)!=0)
+fwrite(&m,sizeof(medecin),1,f2);
+}
+fclose(f);
+fclose(f2);
+remove(fmedecin);
+rename(temp,fmedecin);
+}}
