@@ -20,18 +20,21 @@ scanf("%d",&n);
  switch(n)
 {
 case 1 :
- enregistrer_agent("fagent",&A );
+ enregistrer_agent("fage",&A );
+ break;
 case 2 :
- liste_agent("fagent");
+ liste_agent("fage");
+ break;
 case 3 :
  printf ("\ndonner un nom a chercher : ");
         scanf("%s",nom_agent);
-        t=rechercher_agent("fagent",nom_agent);
+        t=rechercher_agent("fage",nom_agent);
         if (t==1) 
         printf("le personnel existe\n ");
         else printf("le personnel n'existe pas\n");
-
+        break;
 case 4 :printf("vous quittez la page :");
+        break;
 default : printf("Mauvais choix !");
 }
 }
