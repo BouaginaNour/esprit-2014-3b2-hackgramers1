@@ -41,43 +41,33 @@ printf("erreur d'ouverture");
 fclose(f);
 }
 
-
-
 void liste_agent(char fagent[])
 {
 FILE *f;
 int i=1;
 agent p;
-agent A;
-A.id=50000;
+agent ag;
+ag.id=50000;
 f=fopen(fagent,"rb");
 if(f!=NULL)
  {
 
-   
     while((fread(&p,sizeof(agent),1,f)!=0))
-{
-   
-     A.id++;
-    printf("\n");
-    printf("  le numéro de l'agent %d :\n",i);
-    printf("Idenfiant: %ld",A.id);
-    printf("\nNom : %s\nPrenom : %s\nAge : %d\nC.I.N/Passeport : %s\nNationalite : %s\nSalaire : %ld\nEtat civil : %s\nAdresse : %s\nTelephone : %ld",p.nom,p.prenom,p.age,p.passeport,p.nationalite,p.salaire,p.etat_civil,p.adresse,p.telephone);
+    {
+     ag.id++;
+     printf("\n");
+     printf("  L'agent numéro %d :",i);
+     printf("\nIdentifiant :%ld",ag.id);
+     printf("\nNom: %s\nPrenom: %s\nAge: %d\nC.I.N/Passeport: %s\nNationalite: %s\nSalaire: %ld\nEtat civil: %s\nAdresse: %s\nTelephone: %ld",p.nom,p.prenom,p.age,p.passeport,p.nationalite,p.salaire,p.etat_civil,p.adresse,p.telephone);
     i++;
 }
-  
 }
-else 
+else
 printf("\nImpossible d'ouvrir le fichier du personnel");
 fclose(f);
 }
 
-
-
-
-
-
-int rechercher_agent(char fagent[],char nom_agent[])
+int rechercher_agent(char fagent[],char cin_agent[])
 {
 FILE *f;
 int test=0;
@@ -88,7 +78,7 @@ if (f!=NULL)
    while(!feof(f)&&test==0)
    {
      fread(&p,sizeof(agent),1,f);
-       if(strcmp(p.nom,nom_agent)==0)
+       if(strcmp(p.passeport,cin_agent)==0)
            test=1;
    }
 }
@@ -97,3 +87,28 @@ test=-1;
 return test;
 fclose(f);
 }
+
+void supprimer_agent(char fagent[],char cin_agent[])
+{
+agent m ;
+FILE *f;
+FILE *f2;
+char temp[]="temp";
+if(rechercher_agent(fagent,cin_agent)==-1)
+
+printf("l'agent n existe pas \n");
+
+else
+{
+f=fopen(fagent,"rb");
+f2=fopen(temp,"ab");
+while(fread(&m,sizeof(agent),1,f)!=0)
+{
+if(strcmp(m.passeport,cin_agent)!=0)
+fwrite(&m,sizeof(agent),1,f2);
+}
+fclose(f);
+fclose(f2);
+remove(fagent);
+rename(temp,fagent);
+}}

@@ -1,22 +1,31 @@
-#define MAX 50
+#ifndef INFIRMIER_H_
+#define INFIRMIER_H_
 
-typedef struct infirmier 
+
+struct infirmier
+
 {
-char nom[MAX];
-char prenom[MAX];
-int age;
-char passeport[MAX];
-char mdp[MAX];
-long int id ;
-char nationalite[MAX];
-long int salaire;
-char etat_civil[MAX];
-char adresse[MAX];
-long int telephone;
-}infirmier;
+        char nom[50];
+        char prenom[50];
+        char passeport[50];
+        int age ;
+        long int id;
+        char mdp[50];
+        char nationalite[50];
+        long int salaire;
+        char etat_civil[50];
+        char adresse[50];
+        long int telephone;
+};
 
-void saisir_infirmier(infirmier *p);
-void enregistrer_infirmier(char finf[],infirmier *p);
-void liste_infirmier(char finf[]);
-int recherche_infirmier(char finf[],char nom_infirmier[]);
+typedef struct infirmier infirmier ;
+        void saisir_infirmier(infirmier *p);
+        void enregistrer_infirmier(char finfirmier[],infirmier *p);
+        void liste_infirmier(char finfirmier[]);
+        void supprimer_infirmier(char finfirmier[],char cin_infirmier[]);
+        int rechercher_infirmier(char finfirmier[],char cin_infirmier[]);
 
+
+
+
+#endif /* INFIRMIER_H_ */

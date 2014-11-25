@@ -28,10 +28,10 @@ printf("veillez saisir le numero de telephone : ");
 scanf("%ld",&p->telephone);
 }
 
-void enregistrer_infirmier (char finf[], infirmier *p)
+void enregistrer_infirmier (char finfirmier[], infirmier *p)
 { FILE *f;
 saisir_infirmier(p);
-f=fopen(finf,"ab");
+f=fopen(finfirmier,"ab");
 if(f!=NULL)
 {
 fwrite(p,sizeof(infirmier),1,f);
@@ -41,38 +41,33 @@ printf("erreur d'ouverture");
 fclose(f);
 }
 
-
-
-void liste_infirmier(char finf[])
+void liste_infirmier(char finfirmier[])
 {
 FILE *f;
 int i=1;
 infirmier p;
-infirmier H;
-H.id=50000;
-f=fopen(finf,"rb");
+infirmier inf;
+inf.id=60000;
+f=fopen(finfirmier,"rb");
 if(f!=NULL)
  {
 
     while((fread(&p,sizeof(infirmier),1,f)!=0))
-{
-   
-     H.id++;
-    printf("\n");
-    printf("l'infirmier numéro %d :\n",i);
-    printf(" idenfiant: %ld",H.id);
-    printf("\n nom :%s \n prenom :%s \n age :%d \n passeport :%s   \n nationalite :%s \n salaire :%ld \n etat_civil :%s \n adresse :%s \n telephone :%ld \n",p.nom,p.prenom,p.age,p.passeport,p.nationalite,p.salaire,p.etat_civil,p.adresse,p.telephone);
-
+    {
+     inf.id++;
+     printf("\n");
+     printf("  L'infirmier numéro %d :",i);
+     printf("\nIdentifiant :%ld",inf.id);
+     printf("\nNom: %s\nPrenom: %s\nAge: %d\nC.I.N/Passeport: %s\nNationalite: %s\nSalaire: %ld\nEtat civil: %s\nAdresse: %s\nTelephone: %ld",p.nom,p.prenom,p.age,p.passeport,p.nationalite,p.salaire,p.etat_civil,p.adresse,p.telephone);
     i++;
 }
-  
 }
-else 
+else
 printf("\nImpossible d'ouvrir le fichier du personnel");
 fclose(f);
 }
 
-int rechercher_infirmier(char finfirmier[],char nom_infirmier[])
+int rechercher_infirmier(char finfirmier[],char cin_infirmier[])
 {
 FILE *f;
 int test=0;
@@ -83,7 +78,7 @@ if (f!=NULL)
    while(!feof(f)&&test==0)
    {
      fread(&p,sizeof(infirmier),1,f);
-       if(strcmp(p.nom,nom_infirmier)==0)
+       if(strcmp(p.passeport,cin_infirmier)==0)
            test=1;
    }
 }
@@ -92,3 +87,28 @@ test=-1;
 return test;
 fclose(f);
 }
+
+void supprimer_infirmier(char finfirmier[],char cin_infirmier[])
+{
+infirmier m ;
+FILE *f;
+FILE *f2;
+char temp[]="temp";
+if(rechercher_infirmier(finfirmier,cin_infirmier)==-1)
+
+printf("l'infirmier n existe pas \n");
+
+else
+{
+f=fopen(finfirmier,"rb");
+f2=fopen(temp,"ab");
+while(fread(&m,sizeof(infirmier),1,f)!=0)
+{
+if(strcmp(m.passeport,cin_infirmier)!=0)
+fwrite(&m,sizeof(infirmier),1,f2);
+}
+fclose(f);
+fclose(f2);
+remove(finfirmier);
+rename(temp,finfirmier);
+}}

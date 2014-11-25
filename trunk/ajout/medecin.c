@@ -67,7 +67,7 @@ printf("\nImpossible d'ouvrir le fichier du personnel");
 fclose(f);
 }
 
-int rechercher_medecin(char fmed[],char nom_medecin[])
+int rechercher_medecin(char fmed[],char cin_medecin[])
 {
 FILE *f;
 int test=0;
@@ -78,7 +78,7 @@ if (f!=NULL)
    while(!feof(f)&&test==0)
    {
      fread(&p,sizeof(medecin),1,f);
-       if(strcmp(p.nom,nom_medecin)==0)
+       if(strcmp(p.passeport,cin_medecin)==0)
            test=1;
    }
 }
@@ -88,15 +88,15 @@ return test;
 fclose(f);
 }
 
-void supprimer_medecin(char fmedecin[],char nom_medecin[])
+void supprimer_medecin(char fmedecin[],char cin_medecin[])
 {
 medecin m ;
 FILE *f;
 FILE *f2;
 char temp[]="temp";
-if(rechercher_medecin(fmedecin,nom_medecin)==-1)
+if(rechercher_medecin(fmedecin,cin_medecin)==-1)
 
-printf("l etudiant n existe pas \n");
+printf("le medecin n existe pas \n");
 
 else
 {
@@ -104,7 +104,7 @@ f=fopen(fmedecin,"rb");
 f2=fopen(temp,"ab");
 while(fread(&m,sizeof(medecin),1,f)!=0)
 {
-if(strcmp(m.nom,nom_medecin)!=0)
+if(strcmp(m.passeport,cin_medecin)!=0)
 fwrite(&m,sizeof(medecin),1,f2);
 }
 fclose(f);

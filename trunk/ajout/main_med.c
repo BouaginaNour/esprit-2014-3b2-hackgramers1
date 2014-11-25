@@ -4,7 +4,7 @@ int main()
 {
 int c,t;
   medecin p;
-  char nom_medecin[20] ;
+  char cin_medecin[20] ;
         do
 
         {
@@ -33,10 +33,10 @@ int c,t;
         break;
 
         case 3 :
-        printf ("\ndonner le nom a chercher : ");
-        scanf("%s",nom_medecin);
+        printf ("\ndonner le cin/num passeport a chercher : ");
+        scanf("%s",cin_medecin);
 
-        t=rechercher_medecin("fmed",nom_medecin);
+        t=rechercher_medecin("fmed",cin_medecin);
 
         if (t==1)
         printf("le personnel existe\n ");
@@ -45,9 +45,9 @@ int c,t;
         break;
 
         case 4 :
-        printf("entrer le nom de la personne a supprimer \n");
-        scanf("%s",nom_medecin);
-        supprimer_medecin("fmed",nom_medecin);
+        printf("entrer le cin/num passport de la personne a supprimer \n");
+        scanf("%s",cin_medecin);
+        supprimer_medecin("fmed",cin_medecin);
         break;
 
         case 5 :

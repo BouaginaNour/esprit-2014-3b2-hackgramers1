@@ -1,43 +1,64 @@
 #include<stdio.h>
 #include "infirmier.h"
-main()
-{ int t,n;
-  char nom_infirmier[20];
-  infirmier H;
-
-do
+int main()
 {
-        
-printf("taper 1 pour enregistrer infirmier \n");
-printf("taper 2 pour afficher liste des infirmiers \n");
-printf("taper 3 pour chercher infirmier \n");
-printf("taper 4 pour quitter \n");
+int c,t;
+  infirmier p;
+  char cin_infirmier[20] ;
+        do
 
+        {
 
-printf("\ndonner un choix :");
-scanf("%d",&n);  
- 
- switch(n)
-{
-case 1 :
- enregistrer_infirmier("finf",&H );
- break;
-case 2 :
-liste_infirmier("finf");
-break;
-case 3 :
- printf ("\ndonner un nom a chercher : ");
-        scanf("%s",nom_infirmier);
-        t=rechercher_infirmier("finf",nom_infirmier);
-        if (t==1) 
+        printf("\n -**-**-**-**-**-**-**-**-**-**- \n"
+                "\n 1.Enregistrer un infirmier \n "
+                       "\n 2.Liste des infirmiers \n "
+                        "\n 3. Recherche infirmiers \n "
+                        "\n 4. Supprimer infirmiers \n"
+                         "\n 5. Quittez \n "
+               "\n -**-**-**-**-**-**-**-**-**-**- \n ") ;
+
+        printf("\n Donnez votre Choix \n");
+        scanf("%d",&c);
+
+        switch(c)
+
+        {
+
+        case 1 :
+        enregistrer_infirmier("finf",&p );
+        break;
+
+        case 2 :
+        liste_infirmier("finf");
+        break;
+
+        case 3 :
+        printf ("\ndonner le cin/num passeport a chercher : ");
+        scanf("%s",cin_infirmier);
+
+        t=rechercher_infirmier("finf",cin_infirmier);
+
+        if (t==1)
         printf("le personnel existe\n ");
+
         else printf("le personnel n'existe pas\n");
         break;
 
-case 4 :printf("vous quittez la page :");
+        case 4 :
+        printf("entrer le cin/num passport de la personne a supprimer \n");
+        scanf("%s",cin_infirmier);
+        supprimer_infirmier("finf",cin_infirmier);
         break;
-default : printf("Mauvais choix !");
-}
-}
-while(n!=4);
+
+        case 5 :
+        printf("\n sorite du menu \n");
+        break;
+
+        default:
+        printf("\n Mauvais Choix :) ATTENTION :D \n");
+    }
+
+   }while(c!=5);
+
+        return (0);
 }

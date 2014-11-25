@@ -22,8 +22,8 @@ typedef struct medecin medecin ;
         void saisir_medecin(medecin *p);
         void enregistrer_medecin(char fmedecin[],medecin *p);
         void liste_medecin(char fmedecin[]);
-        void supprimer_medecin(char fmedecin[],char nom_medecin[]);
-        int rechercher_medecin(char fmedecin[],char nom_medecin[]);
+        void supprimer_medecin(char fmedecin[],char cin_medecin[]);
+        int rechercher_medecin(char fmedecin[],char cin_medecin[]);
 
 
 
