@@ -21,6 +21,7 @@ char datesor [20];
 void saisie_patient(patient *p);
 void enregister_patient(char fpatient[], patient *p);
 void liste_patient(char fpatient[]);
-int recherche_patient(char fpatient[], char nom_patient[]);
+void supprimer_patient(char fpatient[],char cin_patient[]);
+int rechercher_patient(char fpatient[], char cin_patient[]);
 #endif /* PATIENT_H_ */
 

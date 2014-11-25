@@ -65,7 +65,7 @@ if(f!=NULL)
 {   
     printf("\n   Patient n°%d :",i);
     printf("\nIdentifiant: %ld",p1.id);
-     printf("\nNom: %s \nPrenom: %s \nAge: %d \nNationalite: %s \nPasseport: %s \nIdentifiant: %ld \nAdresse: %s \nContact d'urgence: %ld \nPoids: %f \nTaille: %d \nSexe: %s \nSang: %s \nAllergies: %s \nEtat: %s \nDate d'entree %s \nDate de sorite: %s\n",p.nom,p.prenom,p.age,p.nationalite,p.passeport,p.id,p.adresse,p.conturg,p.poids,p.taille,p.sexe,p.sang,p.allergie,p.etat,p.dateent,p.datesor);
+     printf("\nNom: %s \nPrenom: %s \nAge: %d \nNationalite: %s \nPasseport: %s \nIdentifiant: %ld \nAdresse: %s \nContact d'urgence: %ld \nPoids: %f \nTaille: %d \nSexe: %s \nSang: %s \nAllergies: %s \nEtat: %s \nDate d'entree %s \nDate de sorite: %s\n",p.nom,p.prenom,p.age,p.nationalite,p.passeport,p1.id,p.adresse,p.conturg,p.poids,p.taille,p.sexe,p.sang,p.allergie,p.etat,p.dateent,p.datesor);
     p1.id++;
     i++;
  } 
@@ -74,7 +74,7 @@ else
 printf("\nImpossible d'ouvrir le fichier du personnel");
 fclose(f);
 }
-int recherche_patient(char fpatient[], char nom_patient[])
+int rechercher_patient(char fpatient[], char cin_patient[])
 {
 FILE *f;
 int t=0;
@@ -85,7 +85,7 @@ if (f!=NULL)
    while(!feof(f)&&t==0)
    {
      fread(&p,sizeof(patient),1,f);
-       if(strcmp(p.nom,nom_patient)==0)
+       if(strcmp(p.passeport,cin_patient)==0)
            t=1;
    }
 }
@@ -94,3 +94,28 @@ t=-1;
 return t;
 fclose(f);
 }
+
+void supprimer_patient(char fpatient[],char cin_patient[])
+{
+patient p ;
+FILE *f;
+FILE *f2;
+char temp[]="temp";
+if(rechercher_patient(fpatient,cin_patient)==-1)
+
+printf("le patient n existe pas \n");
+
+else
+{
+f=fopen(fpatient,"rb");
+f2=fopen(temp,"ab");
+while(fread(&p,sizeof(patient),1,f)!=0)
+{
+if(strcmp(p.passeport,cin_patient)!=0)
+fwrite(&p,sizeof(patient),1,f2);
+}
+fclose(f);
+fclose(f2);
+remove(fpatient);
+rename(temp,fpatient);
+}}

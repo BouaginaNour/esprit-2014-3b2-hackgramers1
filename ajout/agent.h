@@ -1,22 +1,31 @@
-#define MAX 50
+#ifndef AGENT_H_
+#define AGENT_H_
 
-typedef struct agent 
+
+struct agent
+
 {
-char nom[MAX];
-char prenom[MAX];
-int age;
-char passeport[MAX];
-long int id;
-char mdp[MAX];
-char nationalite[MAX];
-long int salaire;
-char etat_civil[MAX];
-char adresse[MAX];
-long int telephone;
-}agent;
+        char nom[50];
+        char prenom[50];
+        char passeport[50];
+        int age ;
+        long int id;
+        char mdp[50];
+        char nationalite[50];
+        long int salaire;
+        char etat_civil[50];
+        char adresse[50];
+        long int telephone;
+};
 
-void saisir_agent(agent *p);
-void enregistrer_agent(char fagent[],agent *p);
-void liste_agent(char fagent[]);
-int recherche_agent(char fagent[],char nom_agent[]);
+typedef struct agent agent ;
+        void saisir_agent(agent *p);
+        void enregistrer_agent(char fagent[],agent *p);
+        void liste_agent(char fagent[]);
+        void supprimer_agent(char fagent[],char cin_agent[]);
+        int rechercher_agent(char fagent[],char cin_agent[]);
 
+
+
+
+#endif /* AGENT_H_ */
