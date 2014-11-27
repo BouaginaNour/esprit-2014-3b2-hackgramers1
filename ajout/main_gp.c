@@ -10,7 +10,7 @@ int c,q,w,s,x,d,e,f,v;
    infirmier i;
    agent a;
    patient p;
-  
+  char jj[100];char kk[100];char ll[100];char mm[100];char hh[100];
   char cin_medecin[20] ;
   char cin_infirmier[20] ;
   char cin_agent[20] ;
@@ -28,8 +28,8 @@ int c,q,w,s,x,d,e,f,v;
                "\n -**-**-**-**-**-**-**-**-**-**- \n ") ;
 
         printf("\n Donnez votre Choix \n");
-        scanf("%d",&c);
-
+        scanf("%s",kk);
+        c=atoi(kk);
         switch(c)
 
         {
@@ -48,8 +48,8 @@ int c,q,w,s,x,d,e,f,v;
                "\n -**-**-**-**-**-**-**-**-**-**- \n ") ;
 
         printf("\n Donnez votre Choix \n");
-        scanf("%d",&q);
-
+        scanf("%s",jj);
+        q=atoi(jj);
         switch(q)
 
         {
@@ -88,7 +88,7 @@ int c,q,w,s,x,d,e,f,v;
         printf("\n Mauvais Choix :) ATTENTION :D \n");
     }
 
-   }while(q!=5);
+   }while(q!=5||strcmp(jj,"5")!=0);
 
         break;
 
@@ -106,8 +106,8 @@ int c,q,w,s,x,d,e,f,v;
                "\n -**-**-**-**-**-**-**-**-**-**- \n ") ;
 
         printf("\n Donnez votre Choix \n");
-        scanf("%d",&s);
-
+        scanf("%s",hh);
+        s=atoi(hh);
         switch(s)
 
         {
@@ -146,7 +146,7 @@ int c,q,w,s,x,d,e,f,v;
         printf("\n Mauvais Choix :) ATTENTION :D \n");
     }
 
-   }while(s!=5);
+   }while(s!=5||strcmp(hh,"5")!=0);
         break;
 
         case 3 :
@@ -163,8 +163,8 @@ int c,q,w,s,x,d,e,f,v;
                "\n -**-**-**-**-**-**-**-**-**-**- \n ") ;
 
         printf("\n Donnez votre Choix \n");
-        scanf("%d",&d);
-
+        scanf("%s",ll);
+        d=atoi(ll);
         switch(d)
 
         {
@@ -203,7 +203,7 @@ int c,q,w,s,x,d,e,f,v;
         printf("\n Mauvais Choix :) ATTENTION :D \n");
     }
 
-   }while(d!=5);
+   }while(d!=5||strcmp(ll,"5")!=0);
         break;
 
         case 4 :
@@ -217,7 +217,8 @@ int c,q,w,s,x,d,e,f,v;
                "\n -**-**-**-**-**-**-**-**-**-**- \n ") ;
 
   printf("donner un choix:" );
-  scanf("%d",&f);
+  scanf("%s",mm);
+  f=atoi(mm);
   switch(f)
   { case 1:     enregister_patient("fpatient",&p);
                 break;
@@ -243,7 +244,7 @@ int c,q,w,s,x,d,e,f,v;
     default :   printf("Mauvais choix\n");
         
 }
-}while(f!=5);
+}while(f!=5||strcmp(mm,"5")!=0);
         break;
 
         case 5 :
@@ -254,7 +255,7 @@ int c,q,w,s,x,d,e,f,v;
         printf("\n Mauvais Choix :) ATTENTION :D \n");
     }
 
-   }while(c!=5);
+   }while(c!=5||strcmp(kk,"5")!=0);
 
         return (0);
 }
