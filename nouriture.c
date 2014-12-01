@@ -15,7 +15,8 @@ scanf("%s",n->quantite);
 
 }
 void enregistrer_nouriture (char fnouriture[], nouriture *n,date *d)
-{ FILE *f;
+{ 
+FILE *f;
 saisir_nouriture(n,d);
 f=fopen(fnouriture,"ab");
 if(f!=NULL)
