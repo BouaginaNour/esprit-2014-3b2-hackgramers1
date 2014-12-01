@@ -1,16 +1,21 @@
-#ifndef nouriture.H
+#ifndef nouriture_H_
 #define nouriture_H_
+typedef struct date
+{
+char jour[2];
+char mois[2];
+char annee[4];
+}date;        
 typedef struct nouriture 
 {
-char nom[20];
-char type[10]
-char codebarre[10];
+struct date d;
+char quantite[20];
 }nouriture;
-        void saisir_nouriture(nouriture *n);
-        void enregistrer_nouriture(char fnouriture[],nouriture *n);
-        void supprimer_nouriture(char fnouriture[],char codebarre[]);
-        int rechercher_medicament(char fnouriture,char codebarre[]);
 
+        
+        void saisir_nouriture(nouriture *n,date *d);
+        void enregistrer_nouriture(char fnouriture[],nouriture *n,date *d);
+        void liste_nouriture(char fnouriture[]);
 
 
 

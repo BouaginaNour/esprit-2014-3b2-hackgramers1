@@ -2,16 +2,21 @@
 #include<string.h>
 #include"nouriture.h"
 #define MAX 100
-void saisir_nouriture(nouriture *n)
+void saisir_nouriture(nouriture *n, date *d)
 {
-printf("donner le nom de nouriture:");fflush(stdin);
-scanf("%s",n->nom);
-printf("donner le codebarre de nouriture:");fflush(stdin);
-scanf("%s",n->codebarre);
+printf("donner le jour : ");fflush(stdin);
+scanf("%s",n->d.jour);
+printf("donner le mois : ");fflush(stdin);
+scanf("%s",n->d.mois);
+printf("donner l'annee : ");fflush(stdin);
+scanf("%s",n->d.annee);
+printf("donner la quantité de nouriture :");fflush(stdin);
+scanf("%s",n->quantite);
+
 }
-void enregistre_nouriture (char fnouriture[], nouriture *n)
+void enregistrer_nouriture (char fnouriture[], nouriture *n,date *d)
 { FILE *f;
-saisir_nouriture(n);
+saisir_nouriture(n,d);
 f=fopen(fnouriture,"ab");
 if(f!=NULL)
 {
@@ -21,49 +26,24 @@ else
 printf("erreur d'ouverture");
 fclose(f);
 }
-int rechercher_nouriture(char fnouriture[],char codebarre[])
+
+void liste_nouriture(char fnouriture[])
 {
 FILE *f;
-int test=0;
-nouriture n;
+nouriture p;
+date d;
 f=fopen(fnouriture,"rb");
-if (f!=NULL)
-{
-   while(!feof(f)&&test==0)
-   {
-     fread(&n,sizeof(nouriture),1,f);
-       if(strcmp(n.codebarre,codebarre)==0)
-           test=1;
-   }
+if(f!=NULL)
+ {
+
+    while((fread(&p,sizeof(nouriture),1,f)!=0))
+    {
+     
+     printf("\nDate:%s/%s/%s\nQuantité: %s",p.d.jour,p.d.mois,p.d.annee,p.quantite);
+}
 }
 else
-test=-1;
-return test;
+printf("\nImpossible d'ouvrir le fichier du personnel");
 fclose(f);
 }
-
-void supprimer_nouriture(char fnouriture[],char codebarre )
-{
-nouriture a ;
-FILE *f;
-FILE *f2;
-char temp[]="temp";
-if(rechercher_nouriture(fnouriture,codebarre)==-1)
-
-printf("la medicament n existe pas \n");
-
-else
-{
-f=fopen(fmedicament,"rb");
-f2=fopen(temp,"ab");
-while(fread(&a,sizeof(nouriture),1,f)!=0)
-{
-if(strcmp(a.codebarre,codebarre)!=0)
-fwrite(&a,sizeof(nouriture),1,f2);
-}
-fclose(f);
-fclose(f2);
-remove(fnouriture);
-rename(temp,fnouriture);
-}}
 

@@ -42,7 +42,7 @@ return test;
 fclose(f);
 }
 
-void supprimer_medicament(char fmedicament[],char codebarre )
+void supprimer_medicament(char fmedicament[],char codebarre[] )
 {
 medicament a ;
 FILE *f;
