@@ -2,9 +2,9 @@
 #define nouriture_H_
 typedef struct date
 {
-char jour[2];
-char mois[2];
-char annee[4];
+char jour[3];
+char mois[3];
+char annee[5];
 }date;        
 typedef struct nouriture 
 {
