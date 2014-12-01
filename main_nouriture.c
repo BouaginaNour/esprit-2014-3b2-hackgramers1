@@ -4,16 +4,15 @@ int main()
 {
 int c,t;
   nouriture n;
-  char codebarre[10]  ;
+  date d;
         do
 
         {
 
         printf("\n -**-**-**-**-**-**-**-**-**-**- \n"
-                "\n 1.Enregistrer un nouriture \n "
-                        "\n 2. Recherche nouriture \n "
-                        "\n 3. Supprimer nouriture \n"
-                         "\n 4. Quittez \n "
+                "\n 1.Ajouter la quantité de la nouriture du jour \n "
+                        "\n 2. Afficher nouriture \n "
+                         "\n 3. Quittez \n "
                "\n -**-**-**-**-**-**-**-**-**-**- \n ") ;
 
         printf("\n Donnez votre Choix \n");
@@ -24,29 +23,16 @@ int c,t;
         {
 
         case 1 :
-        enregistrer_nouriture("fnouriture",&n );
+        enregistrer_nouriture("fnouriture",&n,&d );
   
         break;
 
         case 2 :
-        printf ("\ndonner le code barre a chercher : ");
-        scanf("%ld",codebarre);
-
-        t=rechercher_nouriture("fnouriture",codebarre);
-
-        if (t==1)
-        printf("la nouriture existe\n ");
-
-        else printf("la nouriture n'existe pas\n");
+        liste_nouriture("fnouriture");
         break;
 
+       
         case 3 :
-        printf("entrer le code barre de medicament a supprimer \n");
-        scanf("%s",codebarre);
-        supprimer_nouriture("fnouriture",codebarre);
-        break;
-
-        case 4 :
         printf("\n sorite du menu \n");
         break;
 
@@ -54,7 +40,7 @@ int c,t;
         printf("\n Mauvais Choix :) ATTENTION :D \n");
     }
 
-   }while(c!=5);
+   }while(c!=3);
 
         return (0);
 }

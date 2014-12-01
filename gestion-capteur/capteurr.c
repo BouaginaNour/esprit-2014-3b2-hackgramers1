@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-#include "capteur.h"
-void menu_capteur()
+#include "capteurr.h"
+int main()
 {
 char chemin[]="capteurr.txt";
 int choix;
@@ -15,13 +15,13 @@ scanf("%d",&choix);
 switch (choix)
 {
 case 1: afficher (chemin,c1);
-menu_capteur();
+
 break;
 case 2: enregistrer_capteur (chemin,&c1) ;
-menu_capteur();
+
 break;
 case 3: supprimer_capteur (chemin,&c1);
-menu_capteur();
+
 break;
 default :break;}}
 void afficher(char chemin[],capteur c)
@@ -52,16 +52,18 @@ ajouter_capteur(c);
 fprintf(f,"\n%s %s",c->nom,c->emplacement);
 }
 fclose(f);
+}
 void supprimer_capteur (char chemin[] ,capteur *c)
 {
 char nom_capteur[20];
 FILE *f1,*f2;
-char temp[]="capteur1.txt";;
+char temp[]="capteur1.txt";
 f1=fopen(chemin,"r");
 f2=fopen(temp,"w");
 if(f1==NULL||f2==NULL){
 printf("\n Impossible d\'ouvrir leS fichier ");
-}else{
+}else
+{
 printf("\ndonner le nom du capteur a supprimer\n");
 scanf("%s",nom_capteur);
 while (fscanf(f1,"%s %s",(*c).nom,(*c).emplacement)!=EOF){
@@ -71,5 +73,6 @@ while (fscanf(f1,"%s %s",(*c).nom,(*c).emplacement)!=EOF){
 fclose(f1);
 fclose(f2);
 remove(chemin);
-printf("\ncapteur supprimé\n");}}
-
+printf("\ncapteur supprimé\n");
+}
+}
