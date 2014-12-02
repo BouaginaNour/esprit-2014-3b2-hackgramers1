@@ -5,6 +5,7 @@ int main()
 int c,t;
   nouriture n;
   date d;
+  char cho[100];
         do
 
         {
@@ -15,9 +16,9 @@ int c,t;
                          "\n 3. Quittez \n "
                "\n -**-**-**-**-**-**-**-**-**-**- \n ") ;
 
-        printf("\n Donnez votre Choix \n");
-        scanf("%d",&c);
-
+        printf("\n Donnez votre Choix \n");fflush(stdin);
+        scanf("%s",cho);
+        c=atoi(cho);
         switch(c)
 
         {

@@ -4,7 +4,7 @@ int main()
 {
 int c,t;
   medicament m;
-  char codebarre[10]  ;
+  char codebarre[10],ch[100]  ;
         do
 
         {
@@ -13,12 +13,13 @@ int c,t;
                 "\n 1.Enregistrer un medicament \n "
                         "\n 2. Recherche medicament \n "
                         "\n 3. Supprimer medicament \n"
-                         "\n 4. Quittez \n "
+                        "\n 4. Afficher tout medicament \n"
+                         "\n 5. Quittez \n "
                "\n -**-**-**-**-**-**-**-**-**-**- \n ") ;
 
-        printf("\n Donnez votre Choix \n");
-        scanf("%d",&c);
-
+        printf("\n Donnez votre Choix \n");fflush(stdin);
+        scanf("%s",ch);
+        c=atoi(ch); 
         switch(c)
 
         {
@@ -46,6 +47,10 @@ int c,t;
         break;
 
         case 4 :
+        liste_medic("fmedicament");
+        break;
+
+        case 5 :
         printf("\n sorite du menu \n");
         break;
 
