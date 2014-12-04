@@ -26,9 +26,9 @@ int V01;
 int D01;
 int B01;
 int M01;
-int SOUT;
-int POUT;
-int EBOLA;
+int SOU;
+int POU;
+int EBO;
 };
 
 typedef struct personnel Personnel;
@@ -515,7 +515,7 @@ str = (Events *) malloc(sizeof(Events) * nbre_personnel) ;
 //initialisation de la réponse des capteurs à zéro
 for(i=0;i<nbre_personnel;i++)
 {
-str[i].E01=0;str[i].C01=0;str[i].S01=0;str[i].L01=0;str[i].C02=0;str[i].I01=0;str[i].L02=0;str[i].V01=0;str[i].D01=0;str[i].B01=0;str[i].M01=0;str[i].SOUT=0;str[i].POUT=0;str[i].EBOLA=0;
+str[i].E01=0;str[i].C01=0;str[i].S01=0;str[i].L01=0;str[i].C02=0;str[i].I01=0;str[i].L02=0;str[i].V01=0;str[i].D01=0;str[i].B01=0;str[i].M01=0;str[i].SOU=0;str[i].POU=0;str[i].EBO=0;
 }
 
 //remplissage de la structure Events en binaire
@@ -541,9 +541,9 @@ else if (strcmp(cap,"V01") ==0) {str[compteur_events].V01=1;}
 else if (strcmp(cap,"D01") ==0) {str[compteur_events].D01=1;}
 else if (strcmp(cap,"B01") ==0) {str[compteur_events].B01=1;}
 else if (strcmp(cap,"M01") ==0) {str[compteur_events].M01=1;}
-else if (strcmp(cap,"SOUT") ==0) {str[compteur_events].SOUT=1;}
-else if (strcmp(cap,"POUT") ==0) {str[compteur_events].POUT=1;}
-else if (strcmp(cap,"EBOLA") ==0) {str[compteur_events].EBOLA=1;}
+else if (strcmp(cap,"SOU") ==0) {str[compteur_events].SOU=1;}
+else if (strcmp(cap,"POU") ==0) {str[compteur_events].POU=1;}
+else if (strcmp(cap,"EBO") ==0) {str[compteur_events].EBO=1;}
 compteur_personnel++;
 }
 M=tab[compteur_personnel].ID;
@@ -566,9 +566,9 @@ printf("%d\n",str[compteur_events].V01);
 printf("%d\n",str[compteur_events].D01);
 printf("%d\n",str[compteur_events].B01);
 printf("%d\n",str[compteur_events].M01);
-printf("%d\n",str[compteur_events].SOUT);
-printf("%d\n",str[compteur_events].POUT);
-printf("%d\n",str[compteur_events].EBOLA);
+printf("%d\n",str[compteur_events].SOU);
+printf("%d\n",str[compteur_events].POU);
+printf("%d\n",str[compteur_events].EBO);
 }
 */
 
@@ -583,7 +583,7 @@ for(i=0;i<nbre_personnel;i++)
 if (str[i].ID == ID_saisi) 
 {
 ID_existe=1;
-if ((str[i].E01 + str[i].C01 + str[i].S01 + str[i].L01 + str[i].C02 + str[i].I01 + str[i].L02 + str[i].V01 + str[i].D01 + str[i].B01 + str[i].M01 + str[i].SOUT + str[i].POUT + str[i].EBOLA) != 14 )
+if ((str[i].E01 + str[i].C01 + str[i].S01 + str[i].L01 + str[i].C02 + str[i].I01 + str[i].L02 + str[i].V01 + str[i].D01 + str[i].B01 + str[i].M01 + str[i].SOU + str[i].POU + str[i].EBO) != 14 )
 {printf("ALERTE ! Le personnel ayant pour ID: %ld a commi une infraction\n",str[i].ID);}
 break;}
 if (i==(nbre_personnel-1)) {printf("Cet ID n'existe pas\n");}
@@ -615,9 +615,9 @@ if (str[i].V01==0) {printf("Erreur au niveau du capteur V01\nprocédure non resp
 if (str[i].D01==0) {printf("Erreur au niveau du capteur D01\nprocédure non respecté Douche moyennant une solution d'eau et du chlore effectué\n");}
 if (str[i].B01==0) {printf("Erreur au niveau du capteur B01\nEntrée à la zone des bureaux\n");}
 if (str[i].M01==0) {printf("Erreur au niveau du capteur M01\nEntrée à la zone des magazins\n");}
-if (str[i].SOUT==0) {printf("Erreur au niveau du capteur SOUT\nDANGER!!!!Sortie de la clinique\n");}
-if (str[i].POUT==0) {printf("Erreur au niveau du capteur POUT\n!!!!! DANGER !!!!! Alarme de sortie à travers la barrière de la clinique !!!!! DANGER !!!!!\n");}
-if (str[i].EBOLA==0) {printf("Erreur au niveau du capteur EBOLA\n!!!!!DANGER!!!! Personnel atteint par l'EBOLA !!!!! DANGER !!!!!\n");}
+if (str[i].SOU==0) {printf("Erreur au niveau du capteur SOUT\nDANGER!!!!Sortie de la clinique\n");}
+if (str[i].POU==0) {printf("Erreur au niveau du capteur POUT\n!!!!! DANGER !!!!! Alarme de sortie à travers la barrière de la clinique !!!!! DANGER !!!!!\n");}
+if (str[i].EBO==0) {printf("Erreur au niveau du capteur EBOLA\n!!!!!DANGER!!!! Personnel atteint par l'EBOLA !!!!! DANGER !!!!!\n");}
 break;
 case 0 :printf("sortie menu"); break;
 default : printf("Mauvais choix\n"); break;
