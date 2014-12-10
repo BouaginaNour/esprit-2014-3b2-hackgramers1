@@ -2372,7 +2372,7 @@
 	  </child>
 	</widget>
 	<packing>
-	  <property name="x">0</property>
+	  <property name="x">120</property>
 	  <property name="y">0</property>
 	</packing>
       </child>
@@ -2731,23 +2731,6 @@
       <property name="visible">True</property>
 
       <child>
-	<widget class="GtkButton" id="button8">
-	  <property name="width_request">66</property>
-	  <property name="height_request">29</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">liste</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	</widget>
-	<packing>
-	  <property name="x">152</property>
-	  <property name="y">16</property>
-	</packing>
-      </child>
-
-      <child>
 	<widget class="GtkLabel" id="label56">
 	  <property name="width_request">384</property>
 	  <property name="height_request">232</property>
@@ -2770,6 +2753,23 @@
 	<packing>
 	  <property name="x">8</property>
 	  <property name="y">64</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkButton" id="button8">
+	  <property name="width_request">66</property>
+	  <property name="height_request">29</property>
+	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
+	  <property name="label" translatable="yes">liste</property>
+	  <property name="use_underline">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">True</property>
+	</widget>
+	<packing>
+	  <property name="x">152</property>
+	  <property name="y">16</property>
 	</packing>
       </child>
     </widget>

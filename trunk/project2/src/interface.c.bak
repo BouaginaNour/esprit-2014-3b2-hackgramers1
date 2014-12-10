@@ -1175,7 +1175,7 @@ create_window7 (void)
   gtk_fixed_put (GTK_FIXED (fixed11), button8, 152, 16);
   gtk_widget_set_size_request (button8, 66, 29);
 
-  label56 = gtk_label_new (_("label56"));
+  label56 = gtk_label_new ("");
   gtk_widget_set_name (label56, "label56");
   gtk_widget_show (label56);
   gtk_fixed_put (GTK_FIXED (fixed11), label56, 8, 64);
