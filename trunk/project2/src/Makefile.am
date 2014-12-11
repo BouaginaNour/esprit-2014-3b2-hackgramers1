@@ -12,7 +12,8 @@ project2_SOURCES = \
 	support.c support.h \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
-        medecin.c medecin.h 
+        medecin.c medecin.h   \
+        nouriture.c nouriture.h
 
 project2_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 

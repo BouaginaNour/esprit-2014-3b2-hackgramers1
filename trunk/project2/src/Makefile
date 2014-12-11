@@ -91,7 +91,8 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_project2_OBJECTS = main.$(OBJEXT) support.$(OBJEXT) \
-	interface.$(OBJEXT) callbacks.$(OBJEXT) medecin.$(OBJEXT)
+	interface.$(OBJEXT) callbacks.$(OBJEXT) medecin.$(OBJEXT) \
+	nouriture.$(OBJEXT)
 project2_OBJECTS = $(am_project2_OBJECTS)
 am__DEPENDENCIES_1 =
 project2_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -150,13 +151,13 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/nour/Projects/project2/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/lina/esprit-2014-3b2-hackgramers1/project2/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /home/nour/Projects/project2/missing autoconf
-AUTOHEADER = ${SHELL} /home/nour/Projects/project2/missing autoheader
-AUTOMAKE = ${SHELL} /home/nour/Projects/project2/missing automake-1.14
-AWK = mawk
+AUTOCONF = ${SHELL} /home/lina/esprit-2014-3b2-hackgramers1/project2/missing autoconf
+AUTOHEADER = ${SHELL} /home/lina/esprit-2014-3b2-hackgramers1/project2/missing autoheader
+AUTOMAKE = ${SHELL} /home/lina/esprit-2014-3b2-hackgramers1/project2/missing automake-1.14
+AWK = gawk
 CATALOGS = 
 CATOBJEXT = .gmo
 CC = gcc
@@ -189,7 +190,7 @@ LIBOBJS =
 LIBS = 
 LTLIBOBJS = 
 MAINT = 
-MAKEINFO = ${SHELL} /home/nour/Projects/project2/missing makeinfo
+MAKEINFO = ${SHELL} /home/lina/esprit-2014-3b2-hackgramers1/project2/missing makeinfo
 MKDIR_P = /bin/mkdir -p
 MKINSTALLDIRS = ./mkinstalldirs
 MSGFMT = /usr/bin/msgfmt
@@ -218,10 +219,10 @@ STRIP =
 USE_NLS = yes
 VERSION = 0.1
 XGETTEXT = /usr/bin/xgettext
-abs_builddir = /home/nour/Projects/project2/src
-abs_srcdir = /home/nour/Projects/project2/src
-abs_top_builddir = /home/nour/Projects/project2
-abs_top_srcdir = /home/nour/Projects/project2
+abs_builddir = /home/lina/esprit-2014-3b2-hackgramers1/project2/src
+abs_srcdir = /home/lina/esprit-2014-3b2-hackgramers1/project2/src
+abs_top_builddir = /home/lina/esprit-2014-3b2-hackgramers1/project2
+abs_top_srcdir = /home/lina/esprit-2014-3b2-hackgramers1/project2
 ac_ct_CC = gcc
 am__include = include
 am__leading_dot = .
@@ -240,7 +241,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/nour/Projects/project2/install-sh
+install_sh = ${SHELL} /home/lina/esprit-2014-3b2-hackgramers1/project2/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -270,7 +271,8 @@ project2_SOURCES = \
 	support.c support.h \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
-        medecin.c medecin.h 
+        medecin.c medecin.h   \
+        nouriture.c nouriture.h
 
 project2_LDADD = -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lpangocairo-1.0 -lgdk_pixbuf-2.0 -lcairo -lpango-1.0 -lfontconfig -lgobject-2.0 -lglib-2.0 -lfreetype   $(INTLLIBS)
 all: all-am
@@ -364,6 +366,7 @@ include ./$(DEPDIR)/callbacks.Po
 include ./$(DEPDIR)/interface.Po
 include ./$(DEPDIR)/main.Po
 include ./$(DEPDIR)/medecin.Po
+include ./$(DEPDIR)/nouriture.Po
 include ./$(DEPDIR)/support.Po
 
 .c.o:
