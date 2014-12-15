@@ -13,7 +13,8 @@ project2_SOURCES = \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
         medecin.c medecin.h   \
-        nouriture.c nouriture.h
+        nouriture.c nouriture.h\
+        medicament.c medicament.h
 
 project2_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 

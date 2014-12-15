@@ -10,9 +10,9 @@
 #include "support.h"
 
 
-#include "medecin.h" //pour le volet métier de l'application nour aya 9as3a ichméta imta3 il béri7
+#include "medecin.h" //pour le volet métier de l'application 
 #include "nouriture.h"  //pour le volet nouriture window 6 
-
+#include "medicament.h"
 void
 on_button1_clicked(GtkWidget *objet_graphique, gpointer user_data)
 {
@@ -79,17 +79,31 @@ void on_button4_clicked (GtkWidget *objet_graphique, gpointer user_data)
 
 void on_button5_clicked  (GtkWidget *objet_graphique, gpointer user_data)
 {
-
+medicament m;
+char fmedicament[]="fmedicament";
+	GtkWidget *entry46;
+	GtkWidget *entry47;
+        GtkWidget *window10;
+        entry46 = lookup_widget(objet_graphique, "entry46");
+	entry47 = lookup_widget(objet_graphique, "entry47");
+        strcpy(m.nom, gtk_entry_get_text(GTK_ENTRY(entry46)));
+        n.codebarre = atoi(gtk_entry_get_text(GTK_ENTRY(entry47)));
+        enregistrer_medicament("fmedicament",&m);
+        window10 = create_window10();
+	gtk_widget_show(window10);
 }
+
 
 
 void on_button7_clicked  (GtkWidget *objet_graphique, gpointer user_data)
 {
-date dd ;
+date dd;
 nouriture n ;
 char fnouriture[]="fnouri";
 	GtkWidget *entry48;
 	GtkWidget *entry49;
+        GtkWidget *window9;
+       
            	entry48 = lookup_widget(objet_graphique, "entry48");
 		entry49 = lookup_widget(objet_graphique, "entry49");
 
@@ -97,11 +111,11 @@ strcpy(n->dd.jour, gtk_entry_get_text(GTK_ENTRY(entry48)));
 ;//strcpy(n->dd.mois, gtk_entry_get_text(GTK_ENTRY(entry2)));
 ;//strcpy(n->dd.annee, gtk_entry_get_text(GTK_ENTRY(entry3)));
 strcpy(n->quantite, gtk_entry_get_text(GTK_ENTRY(entry49)));
-window6 = create_window6();
-	gtk_widget_show(window6);
+//n.quantite = atoi(gtk_entry_get_text(GTK_ENTRY(entry49))); since quantite is a number ?!which one is right strcpy or atoi
 
- enregistrer_nouriture(fnouriture[],&n,&dd);
-
+ enregistrer_nouriture("fnouriture",&n,&dd);
+window9 = create_window9();
+	gtk_widget_show(window9);
 }
 void on_button8_clicked(GtkWidget *objet_graphique, gpointer user_data)
 {
@@ -132,3 +146,38 @@ void on_window1_destroy (GtkObject *object, gpointer user_data)
 {
 	 gtk_main_quit();
 }
+void on_button10_clicked  (GtkWidget *objet_graphique, gpointer user_data)
+{
+date dd;
+nouriture n ;
+char Buf[100];
+	char Buf0[50] = "date: ";
+	char Buf1[50] = "quantite: ";
+GtkWidget * label60;
+label60= lookup_widget(objet_graphique, "label60");
+liste_nourriture("fnouriture");
+sprintf(Buf, "%s %s \n\n %s %s \n\n %s \n\n", Buf0,n->date.j n->date.mois n->date.annee, Buf1,	n.quantite);// à verifier 
+gtk_label_set_text(GTK_LABEL(label60), Buf);
+}
+void on_window1_destroy (GtkObject *object, gpointer user_data)
+{
+	 gtk_main_quit();
+}
+void on_button11_clicked  (GtkWidget *objet_graphique, gpointer user_data)
+{
+
+medicament m ;
+char Buf[100];
+	char Buf0[50] = "nom: ";
+	char Buf1[50] = "codebarre: ";
+GtkWidget * label61;
+label60= lookup_widget(objet_graphique, "label61");
+liste_medicament("fmedicament");
+sprintf(Buf, "%s  \n\n %s \n\n ", Buf0,n.nom, Buf1,	n.codebarre);// à verifier 
+gtk_label_set_text(GTK_LABEL(label61), Buf);
+}
+void on_window1_destroy (GtkObject *object, gpointer user_data)
+{
+	 gtk_main_quit();
+}
+

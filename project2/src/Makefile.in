@@ -92,7 +92,7 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_project2_OBJECTS = main.$(OBJEXT) support.$(OBJEXT) \
 	interface.$(OBJEXT) callbacks.$(OBJEXT) medecin.$(OBJEXT) \
-	nouriture.$(OBJEXT)
+	nouriture.$(OBJEXT) medicament.$(OBJEXT)
 project2_OBJECTS = $(am_project2_OBJECTS)
 am__DEPENDENCIES_1 =
 project2_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -272,7 +272,8 @@ project2_SOURCES = \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
         medecin.c medecin.h   \
-        nouriture.c nouriture.h
+        nouriture.c nouriture.h\
+        medicament.c medicament.h
 
 project2_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 all: all-am
@@ -366,6 +367,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/interface.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/medecin.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/medicament.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nouriture.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/support.Po@am__quote@
 

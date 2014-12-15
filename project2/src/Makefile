@@ -92,7 +92,7 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_project2_OBJECTS = main.$(OBJEXT) support.$(OBJEXT) \
 	interface.$(OBJEXT) callbacks.$(OBJEXT) medecin.$(OBJEXT) \
-	nouriture.$(OBJEXT)
+	nouriture.$(OBJEXT) medicament.$(OBJEXT)
 project2_OBJECTS = $(am_project2_OBJECTS)
 am__DEPENDENCIES_1 =
 project2_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -272,7 +272,8 @@ project2_SOURCES = \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
         medecin.c medecin.h   \
-        nouriture.c nouriture.h
+        nouriture.c nouriture.h\
+        medicament.c medicament.h
 
 project2_LDADD = -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lpangocairo-1.0 -lgdk_pixbuf-2.0 -lcairo -lpango-1.0 -lfontconfig -lgobject-2.0 -lglib-2.0 -lfreetype   $(INTLLIBS)
 all: all-am
@@ -366,6 +367,7 @@ include ./$(DEPDIR)/callbacks.Po
 include ./$(DEPDIR)/interface.Po
 include ./$(DEPDIR)/main.Po
 include ./$(DEPDIR)/medecin.Po
+include ./$(DEPDIR)/medicament.Po
 include ./$(DEPDIR)/nouriture.Po
 include ./$(DEPDIR)/support.Po
 
