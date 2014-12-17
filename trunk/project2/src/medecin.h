@@ -9,7 +9,6 @@ struct medecin
         char prenom[50];
         char passeport[50];
         char age ;
-        int id;
         char mdp[50];
         char nationalite[50];
         char salaire;
