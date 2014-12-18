@@ -36,6 +36,8 @@ printf("veillez saisir la date d'entrée : ");
 scanf("%s",p->dateent);
 printf("veillez saisir la date de sortie : ");
 scanf("%s",p->datesor);
+printf("veillez saisir la localisation du patient : ");
+scanf("%s",p->localisation);
 }
 
 void enregister_patient(char fpatient[], patient *p)
@@ -65,7 +67,7 @@ if(f!=NULL)
 {   
     printf("\n   Patient n°%d :",i);
     printf("\nIdentifiant: %ld",p1.id);
-     printf("\nNom: %s \nPrenom: %s \nAge: %d \nNationalite: %s \nPasseport: %s \nIdentifiant: %ld \nAdresse: %s \nContact d'urgence: %ld \nPoids: %f \nTaille: %d \nSexe: %s \nSang: %s \nAllergies: %s \nEtat: %s \nDate d'entree %s \nDate de sorite: %s\n",p.nom,p.prenom,p.age,p.nationalite,p.passeport,p1.id,p.adresse,p.conturg,p.poids,p.taille,p.sexe,p.sang,p.allergie,p.etat,p.dateent,p.datesor);
+     printf("\nNom: %s \nPrenom: %s \nAge: %d \nNationalite: %s \nPasseport: %s \nIdentifiant: %ld \nAdresse: %s \nContact d'urgence: %ld \nPoids: %f \nTaille: %d \nSexe: %s \nSang: %s \nAllergies: %s \nEtat: %s \nDate d'entree %s \nDate de sorite: %s\nLocalisation: %s",p.nom,p.prenom,p.age,p.nationalite,p.passeport,p1.id,p.adresse,p.conturg,p.poids,p.taille,p.sexe,p.sang,p.allergie,p.etat,p.dateent,p.datesor,p.localisation);
     p1.id++;
     i++;
  } 
