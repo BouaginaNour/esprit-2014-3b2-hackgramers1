@@ -17,6 +17,7 @@ char allergie [100] ;
 char etat[50] ;
 char dateent [20];
 char datesor [20];
+char localisation[20];
 } patient;
 void saisie_patient(patient *p);
 void enregister_patient(char fpatient[], patient *p);
