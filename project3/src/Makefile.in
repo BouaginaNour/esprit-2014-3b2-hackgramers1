@@ -92,7 +92,7 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_project3_OBJECTS = main.$(OBJEXT) support.$(OBJEXT) \
 	interface.$(OBJEXT) callbacks.$(OBJEXT) medecin.$(OBJEXT) \
-	agent.$(OBJEXT)
+	agent.$(OBJEXT) infirmier.$(OBJEXT) patient.$(OBJEXT)
 project3_OBJECTS = $(am_project3_OBJECTS)
 am__DEPENDENCIES_1 =
 project3_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -272,7 +272,9 @@ project3_SOURCES = \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
         medecin.c medecin.h \
-        agent.c agent.h
+        agent.c agent.h \
+        infirmier.c infirmier.h \
+        patient.c patient.h
 
 project3_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 all: all-am
@@ -364,9 +366,11 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/agent.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/callbacks.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/infirmier.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/interface.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/medecin.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/patient.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/support.Po@am__quote@
 
 .c.o:
