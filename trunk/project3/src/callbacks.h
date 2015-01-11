@@ -49,7 +49,46 @@ on_button15_clicked (GtkWidget *objet_graphique, gpointer user_data);
 void
 on_button14_clicked (GtkWidget *objet_graphique, gpointer user_data);
 
+
+
 void
-on_list1_add                           (GtkContainer    *container,
-                                        GtkWidget       *widget,
-                                        gpointer         user_data);
+on_button18_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button19_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button20_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button21_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button22_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button23_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button24_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button25_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button26_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button27_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button28_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button29_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button16_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button17_clicked(GtkWidget *objet_graphique, gpointer user_data);

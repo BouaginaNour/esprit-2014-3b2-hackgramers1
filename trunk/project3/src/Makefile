@@ -92,7 +92,7 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_project3_OBJECTS = main.$(OBJEXT) support.$(OBJEXT) \
 	interface.$(OBJEXT) callbacks.$(OBJEXT) medecin.$(OBJEXT) \
-	agent.$(OBJEXT)
+	agent.$(OBJEXT) infirmier.$(OBJEXT) patient.$(OBJEXT)
 project3_OBJECTS = $(am_project3_OBJECTS)
 am__DEPENDENCIES_1 =
 project3_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -272,7 +272,9 @@ project3_SOURCES = \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
         medecin.c medecin.h \
-        agent.c agent.h
+        agent.c agent.h \
+        infirmier.c infirmier.h \
+        patient.c patient.h
 
 project3_LDADD = -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lpangocairo-1.0 -lgdk_pixbuf-2.0 -lcairo -lpango-1.0 -lfontconfig -lgobject-2.0 -lglib-2.0 -lfreetype   $(INTLLIBS)
 all: all-am
@@ -364,9 +366,11 @@ distclean-compile:
 
 include ./$(DEPDIR)/agent.Po
 include ./$(DEPDIR)/callbacks.Po
+include ./$(DEPDIR)/infirmier.Po
 include ./$(DEPDIR)/interface.Po
 include ./$(DEPDIR)/main.Po
 include ./$(DEPDIR)/medecin.Po
+include ./$(DEPDIR)/patient.Po
 include ./$(DEPDIR)/support.Po
 
 .c.o:

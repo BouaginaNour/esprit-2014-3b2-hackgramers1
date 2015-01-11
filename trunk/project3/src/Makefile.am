@@ -13,7 +13,9 @@ project3_SOURCES = \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
         medecin.c medecin.h \
-        agent.c agent.h
+        agent.c agent.h \
+        infirmier.c infirmier.h \
+        patient.c patient.h
 
 project3_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 
