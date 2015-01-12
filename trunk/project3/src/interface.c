@@ -1823,6 +1823,7 @@ create_window19 (void)
   GtkWidget *fixed36;
   GtkWidget *button32;
   GtkWidget *button33;
+  GtkWidget *button44;
 
   window19 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (window19), _("window19"));
@@ -1841,11 +1842,19 @@ create_window19 (void)
   gtk_fixed_put (GTK_FIXED (fixed36), button33, 104, 96);
   gtk_widget_set_size_request (button33, 200, 72);
 
+  button44 = gtk_button_new_with_mnemonic (_("GESTION STOCK"));
+  gtk_widget_show (button44);
+  gtk_fixed_put (GTK_FIXED (fixed36), button44, 104, 176);
+  gtk_widget_set_size_request (button44, 200, 72);
+
   g_signal_connect ((gpointer) button32, "clicked",
                     G_CALLBACK (on_button32_clicked),
                     NULL);
   g_signal_connect ((gpointer) button33, "clicked",
                     G_CALLBACK (on_button33_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) button44, "clicked",
+                    G_CALLBACK (on_button44_clicked),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -1853,7 +1862,372 @@ create_window19 (void)
   GLADE_HOOKUP_OBJECT (window19, fixed36, "fixed36");
   GLADE_HOOKUP_OBJECT (window19, button32, "button32");
   GLADE_HOOKUP_OBJECT (window19, button33, "button33");
+  GLADE_HOOKUP_OBJECT (window19, button44, "button44");
 
   return window19;
+}
+
+GtkWidget*
+create_window20 (void)
+{
+  GtkWidget *window20;
+  GtkWidget *fixed37;
+  GtkWidget *button34;
+  GtkWidget *button35;
+
+  window20 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (window20), _("window20"));
+
+  fixed37 = gtk_fixed_new ();
+  gtk_widget_show (fixed37);
+  gtk_container_add (GTK_CONTAINER (window20), fixed37);
+
+  button34 = gtk_button_new_with_mnemonic (_("medicaments"));
+  gtk_widget_show (button34);
+  gtk_fixed_put (GTK_FIXED (fixed37), button34, 32, 128);
+  gtk_widget_set_size_request (button34, 112, 32);
+
+  button35 = gtk_button_new_with_mnemonic (_("nourriture"));
+  gtk_widget_show (button35);
+  gtk_fixed_put (GTK_FIXED (fixed37), button35, 256, 128);
+  gtk_widget_set_size_request (button35, 104, 32);
+
+  g_signal_connect ((gpointer) button34, "clicked",
+                    G_CALLBACK (on_button34_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) button35, "clicked",
+                    G_CALLBACK (on_button35_clicked),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (window20, window20, "window20");
+  GLADE_HOOKUP_OBJECT (window20, fixed37, "fixed37");
+  GLADE_HOOKUP_OBJECT (window20, button34, "button34");
+  GLADE_HOOKUP_OBJECT (window20, button35, "button35");
+
+  return window20;
+}
+
+GtkWidget*
+create_window21 (void)
+{
+  GtkWidget *window21;
+  GtkWidget *fixed38;
+  GtkWidget *label83;
+  GtkWidget *button36;
+  GtkWidget *button37;
+  GtkWidget *button38;
+
+  window21 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (window21), _("window21"));
+
+  fixed38 = gtk_fixed_new ();
+  gtk_widget_show (fixed38);
+  gtk_container_add (GTK_CONTAINER (window21), fixed38);
+
+  label83 = gtk_label_new (_("label83"));
+  gtk_widget_show (label83);
+  gtk_fixed_put (GTK_FIXED (fixed38), label83, 0, 48);
+  gtk_widget_set_size_request (label83, 400, 248);
+
+  button36 = gtk_button_new_with_mnemonic (_("lister"));
+  gtk_widget_show (button36);
+  gtk_fixed_put (GTK_FIXED (fixed38), button36, 24, 8);
+  gtk_widget_set_size_request (button36, 74, 29);
+
+  button37 = gtk_button_new_with_mnemonic (_("chercher"));
+  gtk_widget_show (button37);
+  gtk_fixed_put (GTK_FIXED (fixed38), button37, 128, 8);
+  gtk_widget_set_size_request (button37, 74, 29);
+
+  button38 = gtk_button_new_with_mnemonic (_("supprimer"));
+  gtk_widget_show (button38);
+  gtk_fixed_put (GTK_FIXED (fixed38), button38, 240, 8);
+  gtk_widget_set_size_request (button38, 88, 32);
+
+  g_signal_connect ((gpointer) button36, "clicked",
+                    G_CALLBACK (on_button36_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) button37, "clicked",
+                    G_CALLBACK (on_button37_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) button38, "clicked",
+                    G_CALLBACK (on_button38_clicked),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (window21, window21, "window21");
+  GLADE_HOOKUP_OBJECT (window21, fixed38, "fixed38");
+  GLADE_HOOKUP_OBJECT (window21, label83, "label83");
+  GLADE_HOOKUP_OBJECT (window21, button36, "button36");
+  GLADE_HOOKUP_OBJECT (window21, button37, "button37");
+  GLADE_HOOKUP_OBJECT (window21, button38, "button38");
+
+  return window21;
+}
+
+GtkWidget*
+create_window22 (void)
+{
+  GtkWidget *window22;
+  GtkWidget *fixed39;
+  GtkWidget *label84;
+  GtkWidget *entry59;
+  GtkWidget *label85;
+  GtkWidget *button39;
+
+  window22 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (window22), _("window22"));
+
+  fixed39 = gtk_fixed_new ();
+  gtk_widget_show (fixed39);
+  gtk_container_add (GTK_CONTAINER (window22), fixed39);
+
+  label84 = gtk_label_new (_("codebarre du medicament a chercher :"));
+  gtk_widget_show (label84);
+  gtk_fixed_put (GTK_FIXED (fixed39), label84, 64, 16);
+  gtk_widget_set_size_request (label84, 272, 32);
+
+  entry59 = gtk_entry_new ();
+  gtk_widget_show (entry59);
+  gtk_fixed_put (GTK_FIXED (fixed39), entry59, 120, 56);
+  gtk_widget_set_size_request (entry59, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (entry59), 8226);
+
+  label85 = gtk_label_new ("");
+  gtk_widget_show (label85);
+  gtk_fixed_put (GTK_FIXED (fixed39), label85, 88, 160);
+  gtk_widget_set_size_request (label85, 224, 56);
+
+  button39 = gtk_button_new_with_mnemonic (_("go"));
+  gtk_widget_show (button39);
+  gtk_fixed_put (GTK_FIXED (fixed39), button39, 160, 80);
+  gtk_widget_set_size_request (button39, 74, 29);
+
+  g_signal_connect ((gpointer) button39, "clicked",
+                    G_CALLBACK (on_button39_clicked),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (window22, window22, "window22");
+  GLADE_HOOKUP_OBJECT (window22, fixed39, "fixed39");
+  GLADE_HOOKUP_OBJECT (window22, label84, "label84");
+  GLADE_HOOKUP_OBJECT (window22, entry59, "entry59");
+  GLADE_HOOKUP_OBJECT (window22, label85, "label85");
+  GLADE_HOOKUP_OBJECT (window22, button39, "button39");
+
+  return window22;
+}
+
+GtkWidget*
+create_window23 (void)
+{
+  GtkWidget *window23;
+  GtkWidget *fixed40;
+  GtkWidget *fixed41;
+  GtkWidget *entry60;
+  GtkWidget *label86;
+  GtkWidget *label87;
+  GtkWidget *button40;
+
+  window23 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (window23), _("window23"));
+
+  fixed40 = gtk_fixed_new ();
+  gtk_widget_show (fixed40);
+  gtk_container_add (GTK_CONTAINER (window23), fixed40);
+
+  fixed41 = gtk_fixed_new ();
+  gtk_widget_show (fixed41);
+  gtk_fixed_put (GTK_FIXED (fixed40), fixed41, 0, 0);
+
+  entry60 = gtk_entry_new ();
+  gtk_widget_show (entry60);
+  gtk_fixed_put (GTK_FIXED (fixed41), entry60, 120, 56);
+  gtk_widget_set_size_request (entry60, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (entry60), 8226);
+
+  label86 = gtk_label_new (_("codebarre du medicament a supprimer :"));
+  gtk_widget_show (label86);
+  gtk_fixed_put (GTK_FIXED (fixed41), label86, 64, 16);
+  gtk_widget_set_size_request (label86, 272, 32);
+
+  label87 = gtk_label_new ("");
+  gtk_widget_show (label87);
+  gtk_fixed_put (GTK_FIXED (fixed41), label87, 88, 160);
+  gtk_widget_set_size_request (label87, 224, 56);
+
+  button40 = gtk_button_new_with_mnemonic (_("go"));
+  gtk_widget_show (button40);
+  gtk_fixed_put (GTK_FIXED (fixed41), button40, 160, 80);
+  gtk_widget_set_size_request (button40, 74, 29);
+
+  g_signal_connect ((gpointer) button40, "clicked",
+                    G_CALLBACK (on_button40_clicked),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (window23, window23, "window23");
+  GLADE_HOOKUP_OBJECT (window23, fixed40, "fixed40");
+  GLADE_HOOKUP_OBJECT (window23, fixed41, "fixed41");
+  GLADE_HOOKUP_OBJECT (window23, entry60, "entry60");
+  GLADE_HOOKUP_OBJECT (window23, label86, "label86");
+  GLADE_HOOKUP_OBJECT (window23, label87, "label87");
+  GLADE_HOOKUP_OBJECT (window23, button40, "button40");
+
+  return window23;
+}
+
+GtkWidget*
+create_window24 (void)
+{
+  GtkWidget *window24;
+  GtkWidget *fixed42;
+  GtkWidget *label89;
+  GtkWidget *label88;
+  GtkWidget *entry61;
+  GtkWidget *entry62;
+  GtkWidget *label90;
+  GtkWidget *button41;
+
+  window24 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (window24), _("window24"));
+
+  fixed42 = gtk_fixed_new ();
+  gtk_widget_show (fixed42);
+  gtk_container_add (GTK_CONTAINER (window24), fixed42);
+
+  label89 = gtk_label_new (_("codebarre"));
+  gtk_widget_show (label89);
+  gtk_fixed_put (GTK_FIXED (fixed42), label89, 48, 104);
+  gtk_widget_set_size_request (label89, 80, 24);
+
+  label88 = gtk_label_new (_("nom"));
+  gtk_widget_show (label88);
+  gtk_fixed_put (GTK_FIXED (fixed42), label88, 48, 48);
+  gtk_widget_set_size_request (label88, 64, 32);
+
+  entry61 = gtk_entry_new ();
+  gtk_widget_show (entry61);
+  gtk_fixed_put (GTK_FIXED (fixed42), entry61, 136, 48);
+  gtk_widget_set_size_request (entry61, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (entry61), 8226);
+
+  entry62 = gtk_entry_new ();
+  gtk_widget_show (entry62);
+  gtk_fixed_put (GTK_FIXED (fixed42), entry62, 136, 96);
+  gtk_widget_set_size_request (entry62, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (entry62), 8226);
+
+  label90 = gtk_label_new (_("medicament"));
+  gtk_widget_show (label90);
+  gtk_fixed_put (GTK_FIXED (fixed42), label90, 136, 8);
+  gtk_widget_set_size_request (label90, 96, 24);
+
+  button41 = gtk_button_new_with_mnemonic (_("add"));
+  gtk_widget_show (button41);
+  gtk_fixed_put (GTK_FIXED (fixed42), button41, 152, 152);
+  gtk_widget_set_size_request (button41, 74, 29);
+
+  g_signal_connect ((gpointer) button41, "clicked",
+                    G_CALLBACK (on_button41_clicked),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (window24, window24, "window24");
+  GLADE_HOOKUP_OBJECT (window24, fixed42, "fixed42");
+  GLADE_HOOKUP_OBJECT (window24, label89, "label89");
+  GLADE_HOOKUP_OBJECT (window24, label88, "label88");
+  GLADE_HOOKUP_OBJECT (window24, entry61, "entry61");
+  GLADE_HOOKUP_OBJECT (window24, entry62, "entry62");
+  GLADE_HOOKUP_OBJECT (window24, label90, "label90");
+  GLADE_HOOKUP_OBJECT (window24, button41, "button41");
+
+  return window24;
+}
+
+GtkWidget*
+create_window25 (void)
+{
+  GtkWidget *window25;
+  GtkWidget *fixed43;
+  GtkWidget *label91;
+  GtkWidget *label92;
+  GtkWidget *entry63;
+  GtkWidget *entry64;
+  GtkWidget *label93;
+  GtkWidget *label94;
+  GtkWidget *button42;
+  GtkWidget *button43;
+
+  window25 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (window25), _("window25"));
+
+  fixed43 = gtk_fixed_new ();
+  gtk_widget_show (fixed43);
+  gtk_container_add (GTK_CONTAINER (window25), fixed43);
+
+  label91 = gtk_label_new (_("nourriture"));
+  gtk_widget_show (label91);
+  gtk_fixed_put (GTK_FIXED (fixed43), label91, 160, 8);
+  gtk_widget_set_size_request (label91, 80, 32);
+
+  label92 = gtk_label_new (_("date"));
+  gtk_widget_show (label92);
+  gtk_fixed_put (GTK_FIXED (fixed43), label92, 40, 80);
+  gtk_widget_set_size_request (label92, 49, 17);
+
+  entry63 = gtk_entry_new ();
+  gtk_widget_show (entry63);
+  gtk_fixed_put (GTK_FIXED (fixed43), entry63, 96, 72);
+  gtk_widget_set_size_request (entry63, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (entry63), 8226);
+
+  entry64 = gtk_entry_new ();
+  gtk_widget_show (entry64);
+  gtk_fixed_put (GTK_FIXED (fixed43), entry64, 96, 120);
+  gtk_widget_set_size_request (entry64, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (entry64), 8226);
+
+  label93 = gtk_label_new (_("quantit\303\251"));
+  gtk_widget_show (label93);
+  gtk_fixed_put (GTK_FIXED (fixed43), label93, 24, 128);
+  gtk_widget_set_size_request (label93, 64, 16);
+
+  label94 = gtk_label_new ("");
+  gtk_widget_show (label94);
+  gtk_fixed_put (GTK_FIXED (fixed43), label94, 0, 272);
+  gtk_widget_set_size_request (label94, 400, 120);
+
+  button42 = gtk_button_new_with_mnemonic (_("add"));
+  gtk_widget_show (button42);
+  gtk_fixed_put (GTK_FIXED (fixed43), button42, 152, 168);
+  gtk_widget_set_size_request (button42, 74, 29);
+
+  button43 = gtk_button_new_with_mnemonic (_("lister"));
+  gtk_widget_show (button43);
+  gtk_fixed_put (GTK_FIXED (fixed43), button43, 152, 208);
+  gtk_widget_set_size_request (button43, 74, 29);
+
+  g_signal_connect ((gpointer) button42, "clicked",
+                    G_CALLBACK (on_button42_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) button43, "clicked",
+                    G_CALLBACK (on_button43_clicked),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (window25, window25, "window25");
+  GLADE_HOOKUP_OBJECT (window25, fixed43, "fixed43");
+  GLADE_HOOKUP_OBJECT (window25, label91, "label91");
+  GLADE_HOOKUP_OBJECT (window25, label92, "label92");
+  GLADE_HOOKUP_OBJECT (window25, entry63, "entry63");
+  GLADE_HOOKUP_OBJECT (window25, entry64, "entry64");
+  GLADE_HOOKUP_OBJECT (window25, label93, "label93");
+  GLADE_HOOKUP_OBJECT (window25, label94, "label94");
+  GLADE_HOOKUP_OBJECT (window25, button42, "button42");
+  GLADE_HOOKUP_OBJECT (window25, button43, "button43");
+
+  return window25;
 }
 
