@@ -16,6 +16,7 @@ int
 main (int argc, char *argv[])
 {
   GtkWidget *window9;
+GtkWidget *window18;
 
 
 #ifdef ENABLE_NLS
@@ -36,6 +37,8 @@ main (int argc, char *argv[])
    */
   window9 = create_window9 ();
   gtk_widget_show (window9);
+window18 = create_window18 ();
+  gtk_widget_show (window18);
   
 
   gtk_main ();
