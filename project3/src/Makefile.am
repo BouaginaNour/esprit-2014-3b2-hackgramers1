@@ -15,7 +15,9 @@ project3_SOURCES = \
         medecin.c medecin.h \
         agent.c agent.h \
         infirmier.c infirmier.h \
-        patient.c patient.h
+        patient.c patient.h \
+        medicament.c medicament.h \
+        nourriture.c nourriture.h
 
 project3_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 

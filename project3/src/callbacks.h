@@ -104,3 +104,34 @@ on_button32_clicked(GtkWidget *objet_graphique, gpointer user_data);
 
 void
 on_button33_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button44_clicked(GtkWidget *objet_graphique, gpointer user_data);
+void
+on_button34_clicked(GtkWidget *objet_graphique, gpointer user_data);
+void
+on_button35_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button36_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button37_clicked (GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button38_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button39_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button40_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button41_clicked (GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button42_clicked (GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button43_clicked  (GtkWidget *objet_graphique, gpointer user_data);

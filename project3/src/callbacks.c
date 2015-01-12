@@ -16,6 +16,9 @@
 #include "infirmier.h"
 #include "patient.h"
 #include "parcours.h"
+#include "medicament.h"
+#include "nourriture.h"
+
 void on_button1_clicked(GtkWidget *objet_graphique, gpointer user_data)
 {
 medecin m;
@@ -937,5 +940,188 @@ on_button33_clicked(GtkWidget *objet_graphique, gpointer user_data)
 GtkWidget *window18;
         window18 = create_window18();
 	gtk_widget_show(window18);
+}
+
+
+void
+on_button44_clicked(GtkWidget *objet_graphique, gpointer user_data)
+{
+GtkWidget *window20;
+        window20 = create_window20();
+	gtk_widget_show(window20);
+}
+
+
+void
+on_button34_clicked (GtkWidget *objet_graphique, gpointer user_data)
+{
+GtkWidget *window24;
+        window24 = create_window24();
+	gtk_widget_show(window24);
+}
+
+
+void
+on_button35_clicked (GtkWidget *objet_graphique, gpointer user_data)
+{
+GtkWidget *window25;
+        window25 = create_window25();
+	gtk_widget_show(window25);
+}
+
+
+void
+on_button36_clicked (GtkWidget *objet_graphique, gpointer user_data)
+{
+medicament m;
+	
+
+	char buf[1000];
+	char buf0[50] = "NOM: ";
+	char buf1[50] = "CODEBARRE: ";
+	
+        
+
+
+	GtkWidget * label83;
+label83= lookup_widget(objet_graphique, "label83");
+lister_medicament("fmedicament",&m);
+sprintf(buf,"%s %s \n\n %s %s \n\n",buf0,m.nom,buf1,m.codebarre);
+gtk_label_set_text(GTK_LABEL(label83), buf);
+
+}
+
+
+void
+on_button37_clicked (GtkWidget *objet_graphique, gpointer user_data)
+{
+GtkWidget *window22;
+        window22 = create_window22();
+	gtk_widget_show(window22);
+}
+
+
+void
+on_button38_clicked (GtkWidget *objet_graphique, gpointer user_data)
+{
+GtkWidget *window23;
+        window23 = create_window23();
+	gtk_widget_show(window23);
+}
+
+
+void
+on_button39_clicked (GtkWidget *objet_graphique, gpointer user_data)
+{
+medicament m;
+
+GtkWidget *entry59;
+entry59 = lookup_widget(objet_graphique, "entry59");
+
+GtkWidget * label85;
+label85= lookup_widget(objet_graphique, "label85");
+
+char cb_medicament[20];
+int t;
+
+strcpy(cb_medicament, gtk_entry_get_text(GTK_ENTRY(entry59)));
+t=rechercher_medicament("fmedicament",cb_medicament,&m);
+if (t==1) 
+gtk_label_set_text(GTK_LABEL(label85),"le medicament existe");
+else gtk_label_set_text(GTK_LABEL(label85),"le medicament n'existe pas");
+}
+
+
+void
+on_button40_clicked   (GtkWidget *objet_graphique, gpointer user_data)
+{
+medicament m;
+
+GtkWidget *entry60;
+entry60 = lookup_widget(objet_graphique, "entry60");
+
+GtkWidget * label87;
+label87= lookup_widget(objet_graphique, "label87");
+
+char cb_medicament1[20];
+int s;
+
+strcpy(cb_medicament1, gtk_entry_get_text(GTK_ENTRY(entry60)));
+s=rechercher_medicament("fmedicament",cb_medicament1,&m);
+if (s==1) 
+   {
+     supprimer_medicament("fmedicament",cb_medicament1,&m);
+     gtk_label_set_text(GTK_LABEL(label87),"le medicament est supprimé");
+   }
+else gtk_label_set_text(GTK_LABEL(label87),"le medicament n'existe pas");
+}
+
+
+void
+on_button41_clicked (GtkWidget *objet_graphique, gpointer user_data)
+{
+medicament m;
+
+        GtkWidget *entry61;
+	GtkWidget *entry62;
+	
+
+        GtkWidget *window21;
+        entry61 = lookup_widget(objet_graphique, "entry61");
+	entry62 = lookup_widget(objet_graphique, "entry62");
+	
+
+strcpy(m.nom, gtk_entry_get_text(GTK_ENTRY(entry61)));
+strcpy(m.codebarre, gtk_entry_get_text(GTK_ENTRY(entry62)));
+
+
+
+enregistrer_medicament ("fmedicament", m);
+window21 = create_window21();
+	gtk_widget_show(window21);
+}
+
+
+void
+on_button42_clicked (GtkWidget *objet_graphique, gpointer user_data)
+{
+nourriture m;
+
+        GtkWidget *entry63;
+	GtkWidget *entry64;
+	
+
+        
+        entry63 = lookup_widget(objet_graphique, "entry63");
+	entry64 = lookup_widget(objet_graphique, "entry64");
+	
+
+strcpy(m.date, gtk_entry_get_text(GTK_ENTRY(entry63)));
+strcpy(m.quantite, gtk_entry_get_text(GTK_ENTRY(entry64)));
+
+
+
+enregistrer_nourriture ("fnourriture", m);
+}
+
+
+void
+on_button43_clicked (GtkWidget *objet_graphique, gpointer user_data)
+{
+nourriture m;
+	
+
+	char buf[1000];
+	char buf0[50] = "DATE: ";
+	char buf1[50] = "QUANTITE: ";
+	
+        
+
+
+	GtkWidget * label94;
+label94= lookup_widget(objet_graphique, "label94");
+lister_nourriture("fnourriture",&m);
+sprintf(buf,"%s %s \n\n %s %s \n\n",buf0,m.date,buf1,m.quantite);
+gtk_label_set_text(GTK_LABEL(label94), buf);
 }
 
