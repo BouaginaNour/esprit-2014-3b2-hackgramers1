@@ -553,7 +553,7 @@ callbacks.o: callbacks.c /usr/include/stdc-predef.h ../config.h \
  /usr/include/x86_64-linux-gnu/bits/string.h \
  /usr/include/x86_64-linux-gnu/bits/string2.h \
  /usr/include/x86_64-linux-gnu/bits/string3.h medecin.h agent.h \
- infirmier.h patient.h
+ infirmier.h patient.h parcours.h
 
 /usr/include/stdc-predef.h:
 
@@ -1812,3 +1812,5 @@ agent.h:
 infirmier.h:
 
 patient.h:
+
+parcours.h:

@@ -1732,3 +1732,128 @@ create_window17 (void)
   return window17;
 }
 
+GtkWidget*
+create_window18 (void)
+{
+  GtkWidget *window18;
+  GtkWidget *fixed35;
+  GtkWidget *label78;
+  GtkWidget *label80;
+  GtkWidget *entry58;
+  GtkWidget *button30;
+  GtkWidget *button31;
+  GtkWidget *label79;
+  GtkWidget *label81;
+  GtkWidget *label82;
+
+  window18 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (window18), _("window18"));
+
+  fixed35 = gtk_fixed_new ();
+  gtk_widget_show (fixed35);
+  gtk_container_add (GTK_CONTAINER (window18), fixed35);
+
+  label78 = gtk_label_new (_("Liste du personnel ayant parcouru le circuit:"));
+  gtk_widget_show (label78);
+  gtk_fixed_put (GTK_FIXED (fixed35), label78, 32, 24);
+  gtk_widget_set_size_request (label78, 320, 32);
+
+  label80 = gtk_label_new (_("ID a suivre:"));
+  gtk_widget_show (label80);
+  gtk_fixed_put (GTK_FIXED (fixed35), label80, 8, 248);
+  gtk_widget_set_size_request (label80, 80, 16);
+
+  entry58 = gtk_entry_new ();
+  gtk_widget_show (entry58);
+  gtk_fixed_put (GTK_FIXED (fixed35), entry58, 88, 240);
+  gtk_widget_set_size_request (entry58, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (entry58), 8226);
+
+  button30 = gtk_button_new_with_mnemonic (_("suivie"));
+  gtk_widget_show (button30);
+  gtk_fixed_put (GTK_FIXED (fixed35), button30, 280, 240);
+  gtk_widget_set_size_request (button30, 74, 29);
+
+  button31 = gtk_button_new_with_mnemonic (_("lister"));
+  gtk_widget_show (button31);
+  gtk_fixed_put (GTK_FIXED (fixed35), button31, 0, 64);
+  gtk_widget_set_size_request (button31, 74, 29);
+
+  label79 = gtk_label_new ("");
+  gtk_widget_show (label79);
+  gtk_fixed_put (GTK_FIXED (fixed35), label79, 80, 56);
+  gtk_widget_set_size_request (label79, 240, 176);
+
+  label81 = gtk_label_new ("");
+  gtk_widget_show (label81);
+  gtk_fixed_put (GTK_FIXED (fixed35), label81, 0, 344);
+  gtk_widget_set_size_request (label81, 392, 280);
+
+  label82 = gtk_label_new ("");
+  gtk_widget_show (label82);
+  gtk_fixed_put (GTK_FIXED (fixed35), label82, 32, 288);
+  gtk_widget_set_size_request (label82, 352, 32);
+
+  g_signal_connect ((gpointer) button30, "clicked",
+                    G_CALLBACK (on_button30_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) button31, "clicked",
+                    G_CALLBACK (on_button31_clicked),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (window18, window18, "window18");
+  GLADE_HOOKUP_OBJECT (window18, fixed35, "fixed35");
+  GLADE_HOOKUP_OBJECT (window18, label78, "label78");
+  GLADE_HOOKUP_OBJECT (window18, label80, "label80");
+  GLADE_HOOKUP_OBJECT (window18, entry58, "entry58");
+  GLADE_HOOKUP_OBJECT (window18, button30, "button30");
+  GLADE_HOOKUP_OBJECT (window18, button31, "button31");
+  GLADE_HOOKUP_OBJECT (window18, label79, "label79");
+  GLADE_HOOKUP_OBJECT (window18, label81, "label81");
+  GLADE_HOOKUP_OBJECT (window18, label82, "label82");
+
+  return window18;
+}
+
+GtkWidget*
+create_window19 (void)
+{
+  GtkWidget *window19;
+  GtkWidget *fixed36;
+  GtkWidget *button32;
+  GtkWidget *button33;
+
+  window19 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (window19), _("window19"));
+
+  fixed36 = gtk_fixed_new ();
+  gtk_widget_show (fixed36);
+  gtk_container_add (GTK_CONTAINER (window19), fixed36);
+
+  button32 = gtk_button_new_with_mnemonic (_("GESTION PERSONNELS"));
+  gtk_widget_show (button32);
+  gtk_fixed_put (GTK_FIXED (fixed36), button32, 104, 16);
+  gtk_widget_set_size_request (button32, 200, 72);
+
+  button33 = gtk_button_new_with_mnemonic (_("SUIVIE PERSONNELS"));
+  gtk_widget_show (button33);
+  gtk_fixed_put (GTK_FIXED (fixed36), button33, 104, 96);
+  gtk_widget_set_size_request (button33, 200, 72);
+
+  g_signal_connect ((gpointer) button32, "clicked",
+                    G_CALLBACK (on_button32_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) button33, "clicked",
+                    G_CALLBACK (on_button33_clicked),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (window19, window19, "window19");
+  GLADE_HOOKUP_OBJECT (window19, fixed36, "fixed36");
+  GLADE_HOOKUP_OBJECT (window19, button32, "button32");
+  GLADE_HOOKUP_OBJECT (window19, button33, "button33");
+
+  return window19;
+}
+

@@ -19,3 +19,5 @@ GtkWidget* create_window14 (void);
 GtkWidget* create_window15 (void);
 GtkWidget* create_window16 (void);
 GtkWidget* create_window17 (void);
+GtkWidget* create_window18 (void);
+GtkWidget* create_window19 (void);
