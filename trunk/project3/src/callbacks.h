@@ -92,3 +92,15 @@ on_button16_clicked(GtkWidget *objet_graphique, gpointer user_data);
 
 void
 on_button17_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button30_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button31_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button32_clicked(GtkWidget *objet_graphique, gpointer user_data);
+
+void
+on_button33_clicked(GtkWidget *objet_graphique, gpointer user_data);

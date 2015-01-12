@@ -15,8 +15,8 @@
 int
 main (int argc, char *argv[])
 {
-  GtkWidget *window9;
-GtkWidget *window18;
+  
+GtkWidget *window19;
 
 
 #ifdef ENABLE_NLS
@@ -35,10 +35,9 @@ GtkWidget *window18;
    * (except popup menus), just so that you see something after building
    * the project. Delete any components that you don't want shown initially.
    */
-  window9 = create_window9 ();
-  gtk_widget_show (window9);
-window18 = create_window18 ();
-  gtk_widget_show (window18);
+  
+window19 = create_window19 ();
+  gtk_widget_show (window19);
   
 
   gtk_main ();

@@ -7,6 +7,7 @@
 #include "callbacks.h"
 #include "interface.h"
 #include "support.h"
+#include <stdio.h>
 #include <stdlib.h> //pour l'appel de la fonction atoi()
 #include <string.h> //pour l'appel de la fonction strcpy
 
@@ -14,6 +15,7 @@
 #include "agent.h"
 #include "infirmier.h"
 #include "patient.h"
+#include "parcours.h"
 void on_button1_clicked(GtkWidget *objet_graphique, gpointer user_data)
 {
 medecin m;
@@ -635,5 +637,305 @@ on_button17_clicked(GtkWidget *objet_graphique, gpointer user_data)
 GtkWidget *window14;
         window14 = create_window14();
 	gtk_widget_show(window14);
+}
+
+
+void
+on_button30_clicked(GtkWidget *objet_graphique, gpointer user_data)
+{
+GtkWidget *entry58;
+entry58 = lookup_widget(objet_graphique, "entry58");
+GtkWidget * label79;
+label79= lookup_widget(objet_graphique, "label79");
+GtkWidget * label81;
+label81= lookup_widget(objet_graphique, "label81");
+GtkWidget * label82;
+label82= lookup_widget(objet_graphique, "label82");
+
+        char buf[1000];
+	char buf0[50];
+	char buf1[10000];
+	char buf2[50] = "Infraction commise par: ";
+        char buf3[1000];
+
+
+
+FILE *fichier;
+Personnel *tab,temp;
+Events *str;
+char ID_saisi[50],M[50];
+char ID_temp[50], cap[3];
+int i,j,nbre_lignes=0,nbre_personnel=1,compteur_personnel=0,compteur_events=0,ID_existe=0;
+char c;
+
+fichier= fopen("evenements.log", "r") ;
+
+
+        while(c!=EOF)
+        {
+        c=fgetc(fichier);
+        if (c=='\n') 
+        {
+        nbre_lignes++;
+        }
+        }
+tab = (Personnel *) malloc(sizeof(Personnel) * nbre_lignes) ;
+fseek ( fichier ,0, SEEK_SET );
+        for(i=0;i<nbre_lignes;i++)
+        {
+        fseek ( fichier,9,SEEK_CUR);
+                for(j=0;j<5;j++)
+                {
+                ID_temp[j]=fgetc(fichier);
+                }
+        strcpy(tab[i].ID,ID_temp);
+        c=fgetc(fichier);
+                for(j=0;j<3;j++)
+                {
+                tab[i].capteur[j]=fgetc(fichier);               
+                }
+        if(i<nbre_lignes-1){c=fgetc(fichier);}
+        }
+
+
+
+for (i=1;i<nbre_lignes;i++)
+{
+temp=tab[i]; j=i;
+while( j>0 && (strcmp(tab[j-1].ID,temp.ID)>0))
+{
+tab[j]=tab[j-1];
+j--;
+}
+tab[j]=temp;
+}
+
+
+for(i=1;i<nbre_lignes;i++)
+{
+if (strcmp(tab[i].ID,tab[i-1].ID)!=0) nbre_personnel++;
+}
+
+str = (Events *) malloc(sizeof(Events) * nbre_personnel) ;
+//initialisation de la réponse des capteurs à zéro
+for(i=0;i<nbre_personnel;i++)
+{
+str[i].E01=0;str[i].C01=0;str[i].S01=0;str[i].L01=0;str[i].C02=0;str[i].I01=0;str[i].L02=0;str[i].V01=0;str[i].D01=0;str[i].B01=0;str[i].M01=0;str[i].SOU=0;str[i].POU=0;str[i].EBO=0;
+}
+
+//remplissage de la structure Events en binaire
+strcpy(M,tab[1].ID);
+while(compteur_personnel<nbre_lignes)
+{
+while(strcmp(M,tab[compteur_personnel].ID)==0 && (compteur_personnel<nbre_lignes) )
+{
+for(j=0;j<3;j++)
+{
+cap[j]=tab[compteur_personnel].capteur[j];
+}
+cap[3]='\0';
+strcpy(str[compteur_events].ID,tab[compteur_personnel].ID);
+     if (strcmp(cap,"E01") ==0) {str[compteur_events].E01=1;}
+else if (strcmp(cap,"C01") ==0) {str[compteur_events].C01=1;}
+else if (strcmp(cap,"S01") ==0) {str[compteur_events].S01=1;}
+else if (strcmp(cap,"L01") ==0) {str[compteur_events].L01=1;}
+else if (strcmp(cap,"C02") ==0) {str[compteur_events].C02=1;}
+else if (strcmp(cap,"I01") ==0) {str[compteur_events].I01=1;}
+else if (strcmp(cap,"L02") ==0) {str[compteur_events].L02=1;}
+else if (strcmp(cap,"V01") ==0) {str[compteur_events].V01=1;}
+else if (strcmp(cap,"D01") ==0) {str[compteur_events].D01=1;}
+else if (strcmp(cap,"B01") ==0) {str[compteur_events].B01=1;}
+else if (strcmp(cap,"M01") ==0) {str[compteur_events].M01=1;}
+else if (strcmp(cap,"SOU") ==0) {str[compteur_events].SOU=1;}
+else if (strcmp(cap,"POU") ==0) {str[compteur_events].POU=1;}
+else if (strcmp(cap,"EBO") ==0) {str[compteur_events].EBO=1;}
+compteur_personnel++;
+}
+strcpy(M,tab[compteur_personnel].ID);
+compteur_events++;
+}
+
+
+
+
+
+
+strcpy(ID_saisi, gtk_entry_get_text(GTK_ENTRY(entry58)));
+
+for(i=0;i<nbre_personnel;i++)
+{
+if (strcmp(str[i].ID,ID_saisi)==0) 
+{
+ID_existe=1;
+if ((str[i].E01 + str[i].C01 + str[i].S01 + str[i].L01 + str[i].C02 + str[i].I01 + str[i].L02 + str[i].V01 + str[i].D01 + str[i].B01 + str[i].M01 + str[i].SOU + str[i].POU + str[i].EBO) != 14 )
+{sprintf(buf3,"\n\n %s \n\n",str[i].ID);}
+
+}
+}
+gtk_label_set_text(GTK_LABEL(label82),buf3);
+
+if (ID_existe=1) {gtk_label_set_text(GTK_LABEL(label81),"Cet ID n'existe pas");}
+
+if(ID_existe==1)
+{
+if (str[i].E01==0) {sprintf(buf1,"\n\n %s \n\n","Erreur au niveau du capteur E01 procédure non respecté Entrée à la zone d'isolation activé");}
+if (str[i].C01==0) {sprintf(buf1,"\n\n %s \n\n","Erreur au niveau du capteur C01 procédure non respecté Vêtements de protection + Chaussures habillé");}
+if (str[i].S01==0) {sprintf(buf1,"\n\n %s \n\n","Erreur au niveau du capteur S01 Sortie de la zone d'isolation activé");}
+if (str[i].L01==0) {sprintf(buf1,"\n\n %s \n\n","Erreur au niveau du capteur L01 Premier lavage des mains ");}
+if (str[i].C02==0) {sprintf(buf1,"\n\n %s \n\n","Erreur au niveau du capteur C02 procédure non respecté Vêtements de protection + Chaussures déshabillé ");}
+if (str[i].I01==0) {sprintf(buf1,"\n\n %s \n\n","Erreur au niveau du capteur I01 procédure non respecté Incinération totale des vêtements et des chaussures");}
+if (str[i].L02==0) {sprintf(buf1,"\n\n %s \n\n","Erreur au niveau du capteur L02 procédure non respecté Lavage des mains effectué durant 5 minutes activé ");}
+if (str[i].V01==0) {sprintf(buf1,"\n\n %s \n\n","Erreur au niveau du capteur V01 procédure non respecté passage via la cuve d'eau + Chlore effectué ");}
+if (str[i].D01==0) {sprintf(buf1,"\n\n %s \n\n","Erreur au niveau du capteur D01 procédure non respecté Douche moyennant une solution d'eau et du chlore effectué ");}
+if (str[i].B01==0) {sprintf(buf1,"\n\n %s \n\n","Erreur au niveau du capteur B01 Entrée à la zone des bureaux ");}
+if (str[i].M01==0) {sprintf(buf1,"\n\n %s \n\n","Erreur au niveau du capteur M01 Entrée à la zone des magazins ");}
+if (str[i].SOU==0) {sprintf(buf1,"\n\n %s \n\n","Erreur au niveau du capteur SOUT DANGER!!!!Sortie de la clinique ");}
+if (str[i].POU==0) {sprintf(buf1,"\n\n %s \n\n","Erreur au niveau du capteur POUT !!!!! DANGER !!!!! Alarme de sortie à travers la barrière de la clinique !!!!! DANGER !!!!!\n");}
+if (str[i].EBO==0) {sprintf(buf1,"\n\n %s \n\n","Erreur au niveau du capteur EBOLA !!!!!DANGER!!!! Personnel atteint par l'EBOLA !!!!! DANGER !!!!! ");}
+}
+
+gtk_label_set_text(GTK_LABEL(label81),buf1);
+}
+
+
+void
+on_button31_clicked(GtkWidget *objet_graphique, gpointer user_data)
+{
+GtkWidget *entry58;
+entry58 = lookup_widget(objet_graphique, "entry58");
+GtkWidget * label79;
+label79= lookup_widget(objet_graphique, "label79");
+GtkWidget * label81;
+label81= lookup_widget(objet_graphique, "label81");
+
+        char buf [3] [1000];
+	char buf0[50];
+	char buf1[10000];
+	char buf2[50] = "Infraction commise par: ";
+
+
+
+FILE *fichier;
+Personnel *tab,temp;
+Events *str;
+char ID_saisi[50],M[50];
+char ID_temp[50], cap[3];
+int i,j,nbre_lignes=0,nbre_personnel=1,compteur_personnel=0,compteur_events=0,ID_existe=0;
+char c;
+
+fichier= fopen("evenements.log", "r") ;
+
+
+        while(c!=EOF)
+        {
+        c=fgetc(fichier);
+        if (c=='\n') 
+        {
+        nbre_lignes++;
+        }
+        }
+tab = (Personnel *) malloc(sizeof(Personnel) * nbre_lignes) ;
+fseek ( fichier ,0, SEEK_SET );
+        for(i=0;i<nbre_lignes;i++)
+        {
+        fseek ( fichier,9,SEEK_CUR);
+                for(j=0;j<5;j++)
+                {
+                ID_temp[j]=fgetc(fichier);
+                }
+        strcpy(tab[i].ID,ID_temp);
+        c=fgetc(fichier);
+                for(j=0;j<3;j++)
+                {
+                tab[i].capteur[j]=fgetc(fichier);               
+                }
+        if(i<nbre_lignes-1){c=fgetc(fichier);}
+        }
+
+
+
+for (i=1;i<nbre_lignes;i++)
+{
+temp=tab[i]; j=i;
+while( j>0 && (strcmp(tab[j-1].ID,temp.ID)>0))
+{
+tab[j]=tab[j-1];
+j--;
+}
+tab[j]=temp;
+}
+
+
+for(i=1;i<nbre_lignes;i++)
+{
+if (strcmp(tab[i].ID,tab[i-1].ID)!=0) nbre_personnel++;
+}
+
+str = (Events *) malloc(sizeof(Events) * nbre_personnel) ;
+//initialisation de la réponse des capteurs à zéro
+for(i=0;i<nbre_personnel;i++)
+{
+str[i].E01=0;str[i].C01=0;str[i].S01=0;str[i].L01=0;str[i].C02=0;str[i].I01=0;str[i].L02=0;str[i].V01=0;str[i].D01=0;str[i].B01=0;str[i].M01=0;str[i].SOU=0;str[i].POU=0;str[i].EBO=0;
+}
+
+//remplissage de la structure Events en binaire
+strcpy(M,tab[1].ID);
+while(compteur_personnel<nbre_lignes)
+{
+while(strcmp(M,tab[compteur_personnel].ID)==0 && (compteur_personnel<nbre_lignes) )
+{
+for(j=0;j<3;j++)
+{
+cap[j]=tab[compteur_personnel].capteur[j];
+}
+cap[3]='\0';
+strcpy(str[compteur_events].ID,tab[compteur_personnel].ID);
+     if (strcmp(cap,"E01") ==0) {str[compteur_events].E01=1;}
+else if (strcmp(cap,"C01") ==0) {str[compteur_events].C01=1;}
+else if (strcmp(cap,"S01") ==0) {str[compteur_events].S01=1;}
+else if (strcmp(cap,"L01") ==0) {str[compteur_events].L01=1;}
+else if (strcmp(cap,"C02") ==0) {str[compteur_events].C02=1;}
+else if (strcmp(cap,"I01") ==0) {str[compteur_events].I01=1;}
+else if (strcmp(cap,"L02") ==0) {str[compteur_events].L02=1;}
+else if (strcmp(cap,"V01") ==0) {str[compteur_events].V01=1;}
+else if (strcmp(cap,"D01") ==0) {str[compteur_events].D01=1;}
+else if (strcmp(cap,"B01") ==0) {str[compteur_events].B01=1;}
+else if (strcmp(cap,"M01") ==0) {str[compteur_events].M01=1;}
+else if (strcmp(cap,"SOU") ==0) {str[compteur_events].SOU=1;}
+else if (strcmp(cap,"POU") ==0) {str[compteur_events].POU=1;}
+else if (strcmp(cap,"EBO") ==0) {str[compteur_events].EBO=1;}
+compteur_personnel++;
+}
+strcpy(M,tab[compteur_personnel].ID);
+compteur_events++;
+}
+
+
+
+
+for(i=0;i<nbre_personnel;i++)
+{
+sprintf(buf[i],"\n %s \n",str[i].ID);
+strcat(buf1,buf[i]);
+}
+gtk_label_set_text(GTK_LABEL(label79), buf1);
+}
+
+
+void
+on_button32_clicked(GtkWidget *objet_graphique, gpointer user_data)
+{
+GtkWidget *window9;
+        window9 = create_window9();
+	gtk_widget_show(window9);
+}
+
+
+void
+on_button33_clicked(GtkWidget *objet_graphique, gpointer user_data)
+{
+GtkWidget *window18;
+        window18 = create_window18();
+	gtk_widget_show(window18);
 }
 
